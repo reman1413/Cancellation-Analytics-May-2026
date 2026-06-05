@@ -20,11 +20,12 @@
   --r-md:8px;--r-lg:12px;
 }
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text1);min-height:100vh;font-size:14px}
-.topbar{background:var(--text1);height:54px;display:flex;align-items:center;padding:0 24px;gap:12px;position:sticky;top:0;z-index:100}
+.topbar{background:var(--text1);min-height:54px;display:flex;flex-direction:column;align-items:stretch;padding:10px 24px 0;gap:6px;position:sticky;top:0;z-index:100}
 .logo{width:32px;height:32px;background:linear-gradient(135deg,var(--pu-m),var(--am-m));border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;color:#fff;flex-shrink:0}
 .brand{font-size:14px;font-weight:500;color:#fff}
 .brand-s{font-size:11px;color:rgba(255,255,255,.4);margin-top:1px}
-.nav-tabs{display:flex;gap:2px;margin-left:auto}
+.nav-tabs{display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px}
+.nav-tabs::-webkit-scrollbar{display:none}
 .nav-tab{padding:6px 14px;border-radius:var(--r-md);border:none;background:transparent;font-size:12px;font-weight:500;color:rgba(255,255,255,.45);cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;white-space:nowrap}
 .nav-tab:hover{color:rgba(255,255,255,.75);background:rgba(255,255,255,.07)}
 .nav-tab.on{color:#fff;background:rgba(127,119,221,.35)}
@@ -64,7 +65,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text1);min-
 /* ── PATIENT TABLE ── */
 .pt-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r-lg);padding:16px;overflow:hidden}
 .pt-title{font-size:13px;font-weight:500;color:var(--text2);margin-bottom:10px}
-.pt-tbl{width:100%;border-collapse:collapse;font-size:12px}
+.pt-tbl{width:100%;border-collapse:collapse;font-size:12px;min-width:420px}
 .pt-tbl th{padding:7px 10px;text-align:left;font-size:11px;font-weight:500;color:var(--text3);border-bottom:0.5px solid var(--border2);background:var(--surface2);white-space:nowrap}
 .pt-tbl td{padding:8px 10px;border-bottom:0.5px solid var(--border);color:var(--text2);vertical-align:top}
 .pt-tbl tr:last-child td{border:none}
@@ -78,6 +79,31 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text1);min-
 .pb-other{background:var(--surface2);color:var(--text3)}
 .rb{margin:4px 0}.rb-lbl{display:flex;justify-content:space-between;font-size:11px;color:var(--text2);margin-bottom:2px}
 .rb-t{height:4px;background:var(--surface2);border-radius:3px;overflow:hidden}.rb-f{height:100%;border-radius:3px}
+.chart-wrap{position:relative;height:220px}
+@media(max-width:768px){.chart-wrap{height:180px}}
+
+/* ── MODAL ── */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:999;align-items:center;justify-content:center;padding:16px}
+.modal-bg.show{display:flex}
+.modal{background:var(--surface);border-radius:var(--r-lg);width:100%;max-width:640px;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden}
+.modal-hd{padding:16px 20px;border-bottom:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.modal-title{font-size:14px;font-weight:600;color:var(--text1)}
+.modal-sub{font-size:12px;color:var(--text3);margin-top:2px}
+.modal-close{width:28px;height:28px;border-radius:50%;border:none;background:var(--surface2);cursor:pointer;font-size:16px;color:var(--text2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Inter',sans-serif}
+.modal-close:hover{background:var(--border2)}
+.modal-body{overflow-y:auto;padding:16px 20px;flex:1}
+.modal-tbl{width:100%;border-collapse:collapse;font-size:12px}
+.modal-tbl th{padding:7px 10px;text-align:left;font-size:10px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text3);border-bottom:0.5px solid var(--border2);background:var(--surface2);position:sticky;top:0}
+.modal-tbl td{padding:8px 10px;border-bottom:0.5px solid var(--border);color:var(--text2);vertical-align:top}
+.modal-tbl tr:last-child td{border:none}
+.modal-tbl tr:hover td{background:var(--surface2)}
+.modal-pt-name{font-weight:500;color:var(--text1);font-size:12px}
+.modal-pt-pid{font-size:10px;color:var(--text3);margin-top:1px}
+.reason-tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:500;background:var(--surface2);color:var(--text3);margin-top:3px}
+.clickable-reason{cursor:pointer;border-radius:var(--r-md);padding:4px 8px 4px 4px;margin:-4px -8px -4px -4px;transition:background .12s;display:flex;align-items:center;gap:6px;justify-content:space-between}
+.clickable-reason:hover{background:var(--pu-l)}
+.clickable-reason::after{content:'↗';font-size:11px;color:var(--pu-m);opacity:0;transition:opacity .12s}
+.clickable-reason:hover::after{opacity:1}
 .sec-hd{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;margin:.75rem 0 .4rem}
 
 /* ── TIME GRID ── */
@@ -112,18 +138,64 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text1);min-
 .footer{background:var(--text1);color:rgba(255,255,255,.35);font-size:11px;padding:16px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;line-height:1.7}
 .footer strong{color:rgba(255,255,255,.55)}.footer .by{font-style:italic;color:rgba(255,255,255,.5)}
 .empty{text-align:center;padding:1.5rem;color:var(--text3);font-size:12px}
-@media(max-width:1000px){.daily-wrap,.hour-wrap{grid-template-columns:1fr}}
-@media(max-width:700px){.krow,.svc-grid,.g2eq,.g3{grid-template-columns:1fr 1fr}.time-grid{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:480px){.krow,.svc-grid,.g2eq,.g3{grid-template-columns:1fr}}
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  .daily-wrap,.hour-wrap{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .container{padding:12px 14px 48px}
+  .krow{grid-template-columns:1fr 1fr;gap:8px}
+  .svc-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .g2eq,.g3{grid-template-columns:1fr}
+  .time-grid{grid-template-columns:repeat(3,1fr);gap:6px}
+  .topbar{height:auto;padding:10px 14px;flex-wrap:wrap;gap:8px}
+  .brand{font-size:13px}
+  .brand-s{font-size:10px}
+  .nav-tabs{width:100%;overflow-x:auto;gap:2px;padding-bottom:4px;margin-left:0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .nav-tabs::-webkit-scrollbar{display:none}
+  .nav-tab{padding:5px 12px;font-size:11px;flex-shrink:0}
+  .kc-val{font-size:22px}
+  .kc-lbl{font-size:10px}
+  .kc{padding:12px 12px}
+  .svc-num{font-size:24px}
+  .svc-card{padding:12px}
+  .card{padding:14px 14px}
+  .stats-card{padding:14px}
+  .stats-day-title{font-size:14px}
+  .stat-row{font-size:12px;padding:5px 0}
+  .pt-tbl th,.pt-tbl td{padding:6px 8px;font-size:11px}
+  .pt-name{font-size:11px}
+  .pt-card{padding:12px}
+  .pt-title{font-size:12px}
+  .bar-r .bar-l span{font-size:11px}
+}
+@media(max-width:480px){
+  .krow{grid-template-columns:1fr 1fr}
+  .svc-grid{grid-template-columns:1fr}
+  .time-grid{grid-template-columns:repeat(3,1fr)}
+  .tc-n{font-size:15px}
+  .tc-t{font-size:10px}
+  .kc-val{font-size:20px}
+  .card-hd{font-size:11px}
+  .hint{font-size:11px}
+  .leg{font-size:11px;gap:8px}
+  .note{font-size:11px}
+  .rb-lbl{font-size:10px}
+  .sec-hd{font-size:10px}
+  .insight{font-size:12px;padding:10px 12px}
+  canvas{max-height:200px}
+}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <div class="logo">M</div>
-  <div>
-    <div class="brand">MEENA Medical Group — Home Health Care</div>
-    <div class="brand-s">Cancellation Analytics · May 2026</div>
+  <div style="display:flex;align-items:center;gap:10px;width:100%">
+    <div class="logo">M</div>
+    <div>
+      <div class="brand">MEENA Medical Group — Home Health Care</div>
+      <div class="brand-s">Cancellation Analytics · May 2026</div>
+    </div>
   </div>
   <nav class="nav-tabs">
     <button class="nav-tab on" onclick="showPage('p1',this)">Overview</button>
@@ -218,24 +290,55 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text1);min-
   <div style="height:4px"></div>
   <div class="g2eq">
     <div class="card">
-      <div class="card-hd">Nursing — cancellation reasons (559 total)</div>
-      <div class="bar-r"><div class="bar-l"><span>Hospitalized / ER / admitted</span><span style="color:var(--rd);font-weight:500">121 · 22%</span></div><div class="bar-t"><div class="bar-f" style="width:22%;background:var(--rd-m)"></div></div></div>
-      <div class="bar-r"><div class="bar-l"><span>Other / unclassified</span><span>88 · 16%</span></div><div class="bar-t"><div class="bar-f" style="width:16%;background:var(--pu-m)"></div></div></div>
-      <div class="bar-r"><div class="bar-l"><span>No reason given</span><span>73 · 13%</span></div><div class="bar-t"><div class="bar-f" style="width:13%;background:var(--pu-m)"></div></div></div>
-      <div class="bar-r"><div class="bar-l"><span>Patient refused / request</span><span>62 · 11%</span></div><div class="bar-t"><div class="bar-f" style="width:11%;background:var(--pu-m)"></div></div></div>
-      <div class="bar-r"><div class="bar-l"><span>Patient unavailable / not home</span><span>61 · 11%</span></div><div class="bar-t"><div class="bar-f" style="width:11%;background:var(--pu-m)"></div></div></div>
-      <div class="bar-r"><div class="bar-l"><span>Discharged / course ended</span><span>55 · 10%</span></div><div class="bar-t"><div class="bar-f" style="width:10%;background:var(--te-m)"></div></div></div>
-      <div class="bar-r"><div class="bar-l"><span>Rescheduled / wants later</span><span>45 · 8%</span></div><div class="bar-t"><div class="bar-f" style="width:8%;background:var(--pu-m)"></div></div></div>
-      <div class="bar-r"><div class="bar-l"><span>No answer / unreachable</span><span>27 · 5%</span></div><div class="bar-t"><div class="bar-f" style="width:5%;background:var(--bl-m)"></div></div></div>
-      <div class="bar-r"><div class="bar-l"><span>Shifted to oral meds</span><span>14 · 3%</span></div><div class="bar-t"><div class="bar-f" style="width:3%;background:var(--te-m)"></div></div></div>
-      <div class="bar-r"><div class="bar-l"><span>Failed cannulation / IV</span><span>9 · 2%</span></div><div class="bar-t"><div class="bar-f" style="width:2%;background:var(--rd-m)"></div></div></div>
+      <div class="card-hd">Nursing — cancellation reasons · May 11–31 (374 detailed records)</div>
+      <div style="font-size:11px;color:var(--text3);margin-bottom:10px">Based on actual cancellation notes from IQVIA/schedule system</div>
+      <div class="bar-r"><div class="bar-l"><span>No reason given (blank / — in system)</span><span style="color:var(--rd);font-weight:500">54 · 14.4%</span></div><div class="bar-t"><div class="bar-f" style="width:14.4%;background:var(--rd-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l"><span>Patient refused / cancelled visit</span><span style="font-weight:500">54 · 14.4%</span></div><div class="bar-t"><div class="bar-f" style="width:14.4%;background:var(--pu-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l">
+        <span>Hospitalized / ER / Admitted <span style="font-size:10px;color:var(--text3)">— went hospital, at ER, re-admitted, @hospi</span></span>
+        <span style="font-weight:500">50 · 13.4%</span>
+      </div><div class="bar-t"><div class="bar-f" style="width:13.4%;background:var(--rd-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l">
+        <span>Course ended / shifted to oral <span style="font-size:10px;color:var(--text3)">— last dose, course finished, shifted to oral, D/C, fully healed</span></span>
+        <span style="font-weight:500">49 · 13.1%</span>
+      </div><div class="bar-t"><div class="bar-f" style="width:13.1%;background:var(--te-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l">
+        <span>Rescheduled / change time <span style="font-size:10px;color:var(--text3)">— wants tomorrow, change time, wants 5pm, resched, hold visit</span></span>
+        <span style="font-weight:500">39 · 10.4%</span>
+      </div><div class="bar-t"><div class="bar-f" style="width:10.4%;background:var(--am-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l">
+        <span>Patient not home / out of area <span style="font-size:10px;color:var(--text3)">— not @home, outside Riyadh, on vacation, out of RUH</span></span>
+        <span style="font-weight:500">37 · 9.9%</span>
+      </div><div class="bar-t"><div class="bar-f" style="width:9.9%;background:var(--pu-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l">
+        <span>No answer / not responding <span style="font-size:10px;color:var(--text3)">— no response, not answering calls, unreachable</span></span>
+        <span style="font-weight:500">18 · 4.8%</span>
+      </div><div class="bar-t"><div class="bar-f" style="width:4.8%;background:var(--bl-m)"></div></div></div>
+      <div class="bar-r" onclick="openModal('nursing_other')" style="cursor:pointer;border-radius:6px;padding:4px 6px;margin:-4px -6px;transition:background .12s" onmouseover="this.style.background='#EEEDFE'" onmouseout="this.style.background=''">
+        <div class="bar-l">
+          <span>Other / unclassified &nbsp;<span style="font-size:10px;color:var(--pu-m);font-weight:500">↗ اضغط لرؤية التفاصيل</span></span>
+          <span style="font-weight:600;color:var(--pu)">17 records</span>
+        </div>
+        <div class="bar-t"><div class="bar-f" style="width:4.5%;background:var(--pu-m)"></div></div>
+      </div>
+      <div class="bar-r"><div class="bar-l">
+        <span>Failed cannulation / IV issue <span style="font-size:10px;color:var(--text3)">— failed cannulation, no more IV ABX, vein issue</span></span>
+        <span style="font-weight:500">6 · 1.6%</span>
+      </div><div class="bar-t"><div class="bar-f" style="width:1.6%;background:var(--rd-m)"></div></div></div>
+      <div style="font-size:11px;color:var(--text3);margin-top:10px;padding-top:8px;border-top:0.5px solid var(--border)">Note: Data covers May 11–31 (374 records). May 1–10 reasons not captured in detail sheet (185 cancellations, categorized by summary only).</div>
     </div>
     <div class="card">
       <div class="card-hd">Phlebotomy — cancellation reasons (368 total)</div>
       <div class="bar-r"><div class="bar-l"><span>No comment / no reason</span><span style="color:var(--rd);font-weight:500">133 · 36%</span></div><div class="bar-t"><div class="bar-f" style="width:36%;background:var(--rd-m)"></div></div></div>
       <div class="bar-r"><div class="bar-l"><span>Client postpone request</span><span>55 · 15%</span></div><div class="bar-t"><div class="bar-f" style="width:15%;background:var(--bl-m)"></div></div></div>
       <div class="bar-r"><div class="bar-l"><span>Location note only</span><span>46 · 13%</span></div><div class="bar-t"><div class="bar-f" style="width:13%;background:var(--bl-m)"></div></div></div>
-      <div class="bar-r"><div class="bar-l"><span>Unspecified / other</span><span>31 · 8%</span></div><div class="bar-t"><div class="bar-f" style="width:8%;background:var(--pu-m)"></div></div></div>
+      <div class="bar-r" onclick="openModal('phlebo_other')" style="cursor:pointer;border-radius:6px;padding:4px 6px;margin:-4px -6px;transition:background .12s" onmouseover="this.style.background='#EEEDFE'" onmouseout="this.style.background=''">
+        <div class="bar-l">
+          <span>Unspecified / other &nbsp;<span style="font-size:10px;color:var(--pu-m);font-weight:500">↗ اضغط لرؤية التفاصيل</span></span>
+          <span style="font-weight:600;color:var(--pu)">31 records</span>
+        </div>
+        <div class="bar-t"><div class="bar-f" style="width:8%;background:var(--pu-m)"></div></div>
+      </div>
       <div class="bar-r"><div class="bar-l"><span>Client cancellation</span><span>28 · 8%</span></div><div class="bar-t"><div class="bar-f" style="width:8%;background:var(--rd-m)"></div></div></div>
       <div class="bar-r"><div class="bar-l"><span>Patient not available</span><span>21 · 6%</span></div><div class="bar-t"><div class="bar-f" style="width:6%;background:var(--am-m)"></div></div></div>
       <div class="bar-r"><div class="bar-l"><span>No answer / no response</span><span>12 · 3%</span></div><div class="bar-t"><div class="bar-f" style="width:3%;background:var(--am-m)"></div></div></div>
@@ -255,7 +358,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text1);min-
         <span><span class="dot9" style="background:#E24B4A"></span>Other/unclear 10%</span>
         <span><span class="dot9" style="background:#EF9F27"></span>No consultation 10%</span>
         <span><span class="dot9" style="background:#FAC775"></span>Baby sick 8%</span>
-        <span><span class="dot9" style="background:#888780"></span>Other 17%</span>
+        <span onclick="openModal('vacc_other')" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:2px 6px;border-radius:8px;transition:background .12s" onmouseover="this.style.background='#EEEDFE'" onmouseout="this.style.background=''"><span class="dot9" style="background:#888780"></span>Other 17% <span style="font-size:10px;color:var(--pu-m);font-weight:500">↗ اضغط</span></span>
       </div>
     </div>
     <div class="card">
@@ -266,6 +369,406 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text1);min-
   </div>
 </div>
 
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalBg" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-hd">
+      <div>
+        <div class="modal-title" id="modalTitle">Details</div>
+        <div class="modal-sub" id="modalSub"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal(null)">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<div class="footer">
+  <span>Data from <strong>MEENA nursing schedules</strong> &amp; <strong>IQVIA system records</strong> · Vaccination, Phlebotomy, Nursing Services &amp; Home Consultation · May 2026</span>
+  <span class="by">Prepared by Reman</span>
+</div>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f4fb;--surface:#fff;--surface2:#f0eef8;
+  --text1:#1a1a2e;--text2:#4b5563;--text3:#9ca3af;
+  --border:rgba(0,0,0,.08);--border2:rgba(0,0,0,.13);
+  --pu:#534AB7;--pu-l:#EEEDFE;--pu-m:#7F77DD;
+  --te:#0F6E56;--te-l:#E1F5EE;--te-m:#5DCAA5;
+  --am:#854F0B;--am-l:#FAEEDA;--am-m:#EF9F27;
+  --rd:#791F1F;--rd-l:#FCEBEB;--rd-m:#E24B4A;
+  --bl-l:#E6F1FB;--bl-m:#378ADD;
+  --r-md:8px;--r-lg:12px;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text1);min-height:100vh;font-size:14px}
+.topbar{background:var(--text1);min-height:54px;display:flex;flex-direction:column;align-items:stretch;padding:10px 24px 0;gap:6px;position:sticky;top:0;z-index:100}
+.logo{width:32px;height:32px;background:linear-gradient(135deg,var(--pu-m),var(--am-m));border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;color:#fff;flex-shrink:0}
+.brand{font-size:14px;font-weight:500;color:#fff}
+.brand-s{font-size:11px;color:rgba(255,255,255,.4);margin-top:1px}
+.nav-tabs{display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{padding:6px 14px;border-radius:var(--r-md);border:none;background:transparent;font-size:12px;font-weight:500;color:rgba(255,255,255,.45);cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;white-space:nowrap}
+.nav-tab:hover{color:rgba(255,255,255,.75);background:rgba(255,255,255,.07)}
+.nav-tab.on{color:#fff;background:rgba(127,119,221,.35)}
+.page{display:none}.page.on{display:block}
+.container{max-width:1280px;margin:0 auto;padding:20px 24px 48px}
+.krow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+.kc{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r-lg);padding:14px 16px;position:relative;overflow:hidden}
+.kc::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;border-radius:var(--r-lg) var(--r-lg) 0 0}
+.kc.p::before{background:var(--pu-m)}.kc.r::before{background:var(--rd-m)}.kc.t::before{background:var(--te-m)}.kc.a::before{background:var(--am-m)}
+.kc-lbl{font-size:11px;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px}
+.kc-val{font-size:26px;font-weight:600;color:var(--text1);line-height:1}
+.kc-sub{font-size:11px;color:var(--text3);margin-top:3px}
+.card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r-lg);padding:18px 20px;margin-bottom:14px}
+.card-hd{font-size:12px;font-weight:500;color:var(--text2);margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.g2eq{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px}
+.leg{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--text2);margin-bottom:8px}
+.ld{width:20px;height:3px;border-radius:2px;display:inline-block;vertical-align:middle;margin-right:4px}
+.dot9{width:9px;height:9px;border-radius:50%;display:inline-block;vertical-align:middle;margin-right:4px}
+.hint{font-size:12px;color:var(--text3);margin-bottom:10px}
+.note{font-size:12px;padding:9px 12px;border-radius:var(--r-md);line-height:1.6;margin-bottom:8px}
+.note.warn{background:var(--am-l);color:var(--am)}.note.danger{background:var(--rd-l);color:var(--rd)}
+.note.info{background:var(--bl-l);color:#0C447C}.note.ok{background:var(--te-l);color:var(--te)}
+.stat-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:6px 0;border-bottom:0.5px solid var(--border)}
+.stat-row:last-child{border:none}
+.sr-lbl{color:var(--text2)}.sr-val{font-weight:500;color:var(--text1)}
+
+/* ── DAILY LAYOUT ── */
+.daily-wrap{display:grid;grid-template-columns:1fr 420px;gap:14px;margin-bottom:14px}
+.day-left{}
+.day-right{display:flex;flex-direction:column;gap:10px}
+
+/* ── STATS PANEL ── */
+.stats-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r-lg);padding:16px}
+.stats-day-title{font-size:16px;font-weight:600;color:var(--text1);margin-bottom:12px}
+
+/* ── PATIENT TABLE ── */
+.pt-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r-lg);padding:16px;overflow:hidden}
+.pt-title{font-size:13px;font-weight:500;color:var(--text2);margin-bottom:10px}
+.pt-tbl{width:100%;border-collapse:collapse;font-size:12px;min-width:420px}
+.pt-tbl th{padding:7px 10px;text-align:left;font-size:11px;font-weight:500;color:var(--text3);border-bottom:0.5px solid var(--border2);background:var(--surface2);white-space:nowrap}
+.pt-tbl td{padding:8px 10px;border-bottom:0.5px solid var(--border);color:var(--text2);vertical-align:top}
+.pt-tbl tr:last-child td{border:none}
+.pt-tbl tr:hover td{background:var(--surface2);color:var(--text1)}
+.pt-name{font-weight:500;color:var(--text1);font-size:12px}
+.pt-pid{font-size:11px;color:var(--text3);margin-top:1px}
+.pt-reason{font-size:11px;color:var(--text2);line-height:1.4}
+.pt-badge{display:inline-block;padding:1px 6px;border-radius:10px;font-size:10px;font-weight:500;margin-top:3px}
+.pb-hosp{background:var(--rd-l);color:var(--rd)}.pb-unavail{background:var(--am-l);color:var(--am)}
+.pb-oral{background:var(--te-l);color:var(--te)}.pb-noans{background:var(--bl-l);color:#0C447C}
+.pb-other{background:var(--surface2);color:var(--text3)}
+.rb{margin:4px 0}.rb-lbl{display:flex;justify-content:space-between;font-size:11px;color:var(--text2);margin-bottom:2px}
+.rb-t{height:4px;background:var(--surface2);border-radius:3px;overflow:hidden}.rb-f{height:100%;border-radius:3px}
+.chart-wrap{position:relative;height:220px}
+@media(max-width:768px){.chart-wrap{height:180px}}
+
+/* ── MODAL ── */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:999;align-items:center;justify-content:center;padding:16px}
+.modal-bg.show{display:flex}
+.modal{background:var(--surface);border-radius:var(--r-lg);width:100%;max-width:640px;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden}
+.modal-hd{padding:16px 20px;border-bottom:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.modal-title{font-size:14px;font-weight:600;color:var(--text1)}
+.modal-sub{font-size:12px;color:var(--text3);margin-top:2px}
+.modal-close{width:28px;height:28px;border-radius:50%;border:none;background:var(--surface2);cursor:pointer;font-size:16px;color:var(--text2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Inter',sans-serif}
+.modal-close:hover{background:var(--border2)}
+.modal-body{overflow-y:auto;padding:16px 20px;flex:1}
+.modal-tbl{width:100%;border-collapse:collapse;font-size:12px}
+.modal-tbl th{padding:7px 10px;text-align:left;font-size:10px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--text3);border-bottom:0.5px solid var(--border2);background:var(--surface2);position:sticky;top:0}
+.modal-tbl td{padding:8px 10px;border-bottom:0.5px solid var(--border);color:var(--text2);vertical-align:top}
+.modal-tbl tr:last-child td{border:none}
+.modal-tbl tr:hover td{background:var(--surface2)}
+.modal-pt-name{font-weight:500;color:var(--text1);font-size:12px}
+.modal-pt-pid{font-size:10px;color:var(--text3);margin-top:1px}
+.reason-tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:500;background:var(--surface2);color:var(--text3);margin-top:3px}
+.clickable-reason{cursor:pointer;border-radius:var(--r-md);padding:4px 8px 4px 4px;margin:-4px -8px -4px -4px;transition:background .12s;display:flex;align-items:center;gap:6px;justify-content:space-between}
+.clickable-reason:hover{background:var(--pu-l)}
+.clickable-reason::after{content:'↗';font-size:11px;color:var(--pu-m);opacity:0;transition:opacity .12s}
+.clickable-reason:hover::after{opacity:1}
+.sec-hd{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;margin:.75rem 0 .4rem}
+
+/* ── TIME GRID ── */
+.time-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:14px}
+.tc{background:var(--surface2);border-radius:var(--r-md);padding:10px 8px;text-align:center;cursor:pointer;transition:all .12s;border:0.5px solid var(--border)}
+.tc:hover{background:var(--surface);border-color:var(--border2)}
+.tc.sel{border:1.5px solid var(--pu-m);background:var(--pu-l)}
+.tc.hot{border-color:#F09595}
+.tc-t{font-size:10px;color:var(--text3);margin-bottom:3px}
+.tc-n{font-size:17px;font-weight:500;color:var(--text1)}
+.tc-b{height:3px;border-radius:2px;margin-top:5px}
+
+/* ── TIME DETAIL ── */
+.hour-wrap{display:grid;grid-template-columns:320px 1fr;gap:14px;margin-bottom:14px}
+.hour-stat{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r-lg);padding:16px}
+.hour-pt{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r-lg);padding:16px;overflow:hidden}
+
+/* ── SVCGRID ── */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.svc-card{border-radius:var(--r-lg);padding:16px;border:0.5px solid}
+.svc-n{background:var(--pu-l);border-color:rgba(83,74,183,.2)}.svc-p{background:var(--bl-l);border-color:rgba(24,95,165,.2)}
+.svc-v{background:var(--te-l);border-color:rgba(15,110,86,.2)}.svc-c{background:var(--am-l);border-color:rgba(133,79,11,.2)}
+.svc-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.svc-num{font-size:28px;font-weight:600;line-height:1}.svc-dt{font-size:11px;margin-top:8px;line-height:1.7;color:var(--text2)}
+.badge{display:inline-flex;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:500;margin-top:5px}
+.b-p{background:var(--pu-l);color:var(--pu)}.b-r{background:var(--rd-l);color:var(--rd)}
+.b-t{background:var(--te-l);color:var(--te)}.b-a{background:var(--am-l);color:var(--am)}
+.bar-r{margin:5px 0}.bar-l{display:flex;justify-content:space-between;font-size:11px;color:var(--text2);margin-bottom:3px}
+.bar-t{height:5px;background:var(--surface2);border-radius:3px;overflow:hidden}.bar-f{height:100%;border-radius:3px}
+.insight{background:var(--pu-l);border-left:3px solid var(--pu-m);border-radius:0 var(--r-md) var(--r-md) 0;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--text2);line-height:1.65}
+.insight strong{color:var(--text1)}
+.footer{background:var(--text1);color:rgba(255,255,255,.35);font-size:11px;padding:16px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;line-height:1.7}
+.footer strong{color:rgba(255,255,255,.55)}.footer .by{font-style:italic;color:rgba(255,255,255,.5)}
+.empty{text-align:center;padding:1.5rem;color:var(--text3);font-size:12px}
+/* ── RESPONSIVE ── */
+@media(max-width:1000px){
+  .daily-wrap,.hour-wrap{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .container{padding:12px 14px 48px}
+  .krow{grid-template-columns:1fr 1fr;gap:8px}
+  .svc-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .g2eq,.g3{grid-template-columns:1fr}
+  .time-grid{grid-template-columns:repeat(3,1fr);gap:6px}
+  .topbar{height:auto;padding:10px 14px;flex-wrap:wrap;gap:8px}
+  .brand{font-size:13px}
+  .brand-s{font-size:10px}
+  .nav-tabs{width:100%;overflow-x:auto;gap:2px;padding-bottom:4px;margin-left:0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .nav-tabs::-webkit-scrollbar{display:none}
+  .nav-tab{padding:5px 12px;font-size:11px;flex-shrink:0}
+  .kc-val{font-size:22px}
+  .kc-lbl{font-size:10px}
+  .kc{padding:12px 12px}
+  .svc-num{font-size:24px}
+  .svc-card{padding:12px}
+  .card{padding:14px 14px}
+  .stats-card{padding:14px}
+  .stats-day-title{font-size:14px}
+  .stat-row{font-size:12px;padding:5px 0}
+  .pt-tbl th,.pt-tbl td{padding:6px 8px;font-size:11px}
+  .pt-name{font-size:11px}
+  .pt-card{padding:12px}
+  .pt-title{font-size:12px}
+  .bar-r .bar-l span{font-size:11px}
+}
+@media(max-width:480px){
+  .krow{grid-template-columns:1fr 1fr}
+  .svc-grid{grid-template-columns:1fr}
+  .time-grid{grid-template-columns:repeat(3,1fr)}
+  .tc-n{font-size:15px}
+  .tc-t{font-size:10px}
+  .kc-val{font-size:20px}
+  .card-hd{font-size:11px}
+  .hint{font-size:11px}
+  .leg{font-size:11px;gap:8px}
+  .note{font-size:11px}
+  .rb-lbl{font-size:10px}
+  .sec-hd{font-size:10px}
+  .insight{font-size:12px;padding:10px 12px}
+  canvas{max-height:200px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:10px;width:100%">
+    <div class="logo">M</div>
+    <div>
+      <div class="brand">MEENA Medical Group — Home Health Care</div>
+      <div class="brand-s">Cancellation Analytics · May 2026</div>
+    </div>
+  </div>
+  <nav class="nav-tabs">
+    <button class="nav-tab on" onclick="showPage('p1',this)">Overview</button>
+    <button class="nav-tab" onclick="showPage('p2',this)">Daily drill-down</button>
+    <button class="nav-tab" onclick="showPage('p3',this)">Time patterns</button>
+    <button class="nav-tab" onclick="showPage('p4',this)">Cancellation reasons</button>
+  </nav>
+</div>
+
+<div class="container">
+
+<!-- PAGE 1 -->
+<div id="p1" class="page on">
+  <div style="height:4px"></div>
+  <div class="krow">
+    <div class="kc p"><div class="kc-lbl">Total appointments</div><div class="kc-val">10,905</div><div class="kc-sub">All 4 services · May 2026</div></div>
+    <div class="kc t"><div class="kc-lbl">Completed</div><div class="kc-val">9,389</div><div class="kc-sub">86.1% completion rate</div></div>
+    <div class="kc r"><div class="kc-lbl">Cancelled / No Show</div><div class="kc-val">1,516</div><div class="kc-sub">13.9% operational leakage</div></div>
+    <div class="kc a"><div class="kc-lbl">No Shows (post-dispatch)</div><div class="kc-val">218</div><div class="kc-sub">Phlebotomy 149 · Vaccination 69</div></div>
+  </div>
+  <div class="insight"><strong>Vaccination</strong> has the highest cancel rate at <strong>20.7%</strong> — mainly doctor order delays (27%). <strong>Phlebotomy</strong> leads No Shows with 149 wasted nurse trips; 36% have no documented reason. Peak cancellation window: <strong>4–8 PM</strong> across all services. <strong>Eid Al-Adha (May 22–25)</strong> caused a significant drop in vaccination visits.</div>
+  <div class="svc-grid">
+    <div class="svc-card svc-n"><div class="svc-lbl" style="color:var(--pu)">Nursing service</div><div class="svc-num" style="color:var(--pu)">559</div><div class="svc-dt">Total: <strong>4,742</strong> · Rate: <strong>11.8%</strong><br>No Show: <strong>not tracked yet</strong></div><span class="badge b-p">Hospitalized/ER: 22%</span></div>
+    <div class="svc-card svc-p"><div class="svc-lbl" style="color:#185FA5">Phlebotomy at home</div><div class="svc-num" style="color:#185FA5">368</div><div class="svc-dt">Total: <strong>2,697</strong> · Rate: <strong>13.6%</strong><br>No Show: <strong style="color:var(--rd)">149 (40.5%)</strong></div><span class="badge b-r">No comment: 36%</span></div>
+    <div class="svc-card svc-v"><div class="svc-lbl" style="color:var(--te)">Vaccination at home</div><div class="svc-num" style="color:var(--te)">316</div><div class="svc-dt">Total: <strong>1,530</strong> · Rate: <strong>20.7%</strong><br>No Show: <strong style="color:var(--rd)">69 (21.8%)</strong></div><span class="badge b-t">Doctor order: 27%</span></div>
+    <div class="svc-card svc-c"><div class="svc-lbl" style="color:var(--am)">Home consultation</div><div class="svc-num" style="color:var(--am)">273</div><div class="svc-dt">Total: <strong>1,936</strong> · Rate: <strong>14.1%</strong><br>No Show: <strong>not tracked yet</strong></div><span class="badge b-a">PM shift: 78%</span></div>
+  </div>
+  <div class="g2eq">
+    <div class="card"><div class="card-hd">Cancel rate by service</div><div style="position:relative;height:200px"><canvas id="c_rate" role="img" aria-label="Horizontal bar rates">Vaccination highest 20.7%.</canvas></div></div>
+    <div class="card"><div class="card-hd">Completed vs cancelled — all services</div><div style="position:relative;height:200px"><canvas id="c_stack" role="img" aria-label="Stacked bar completed vs cancelled">Nursing highest volume.</canvas></div></div>
+  </div>
+  <div class="card">
+    <div class="card-hd">Weekly cancellations — all services</div>
+    <div class="leg"><span><span class="dot9" style="background:var(--pu-m)"></span>Nursing</span><span><span class="dot9" style="background:var(--bl-m)"></span>Phlebotomy</span><span><span class="dot9" style="background:var(--te-m)"></span>Vaccination</span><span><span class="dot9" style="background:var(--am-m)"></span>Consultation</span></div>
+    <div style="position:relative;height:180px"><canvas id="c_weekly" role="img" aria-label="Weekly grouped bars">Week 1 highest.</canvas></div>
+  </div>
+</div>
+
+<!-- PAGE 2: DAILY -->
+<div id="p2" class="page">
+  <div style="height:4px"></div>
+  <div class="krow">
+    <div class="kc p"><div class="kc-lbl">Nursing cancelled</div><div class="kc-val">559</div><div class="kc-sub">31 days · 4,742 total</div></div>
+    <div class="kc r"><div class="kc-lbl">Peak day</div><div class="kc-val">May 4</div><div class="kc-sub">25 cancellations · 15.8%</div></div>
+    <div class="kc a"><div class="kc-lbl">Eid Al-Adha impact</div><div class="kc-val">May 22–25</div><div class="kc-sub">Vaccination near zero</div></div>
+    <div class="kc t"><div class="kc-lbl">Patient detail records</div><div class="kc-val">374</div><div class="kc-sub">Full data · May 11–31</div></div>
+  </div>
+  <div class="card" style="margin-bottom:10px">
+    <div class="card-hd">
+      <span>Daily cancellations — nursing, phlebotomy &amp; vaccination · May 2026</span>
+      <span style="font-size:11px;color:var(--text3)">Click any day for full breakdown and patient records</span>
+    </div>
+    <div class="leg"><span><span class="ld" style="background:var(--pu-m)"></span>Nursing</span><span><span class="ld" style="background:var(--bl-m)"></span>Phlebotomy</span><span><span class="ld" style="background:var(--te-m)"></span>Vaccination</span></div>
+    <div style="position:relative;height:240px"><canvas id="c_day" role="img" aria-label="Daily cancellation bars May 2026">Click any bar to drill down.</canvas></div>
+  </div>
+
+  <!-- DAILY DETAIL -->
+  <div class="daily-wrap" id="dailyDetail" style="display:none">
+    <!-- LEFT: stats + reasons -->
+    <div class="day-left">
+      <div class="stats-card" id="dayStats"></div>
+    </div>
+    <!-- RIGHT: patient table -->
+    <div class="day-right">
+      <div class="pt-card" id="ptCard"></div>
+    </div>
+  </div>
+  <div id="dayPlaceholder" style="text-align:center;padding:2rem;color:var(--text3);font-size:13px">Click a day on the chart above to see full details</div>
+</div>
+
+<!-- PAGE 3: TIME -->
+<div id="p3" class="page">
+  <div style="height:4px"></div>
+  <div class="card">
+    <div class="card-hd">Nursing cancellations by hour — May 11–31 (374 records · click any cell)</div>
+    <div class="hint">Red cells = high risk · darker bar = higher volume</div>
+    <div class="time-grid" id="timeGrid"></div>
+  </div>
+  <div class="hour-wrap" id="hourWrap" style="display:none">
+    <div class="hour-stat" id="hourStat"></div>
+    <div class="hour-pt" id="hourPt"></div>
+  </div>
+  <div id="timePlaceholder" style="text-align:center;padding:1.5rem;color:var(--text3);font-size:13px">Click a time slot to see patient records and reasons</div>
+  <div class="g2eq" style="margin-top:14px">
+    <div class="card"><div class="card-hd">Phlebotomy — hourly cancellations</div><div style="position:relative;height:200px"><canvas id="c_phtime" role="img" aria-label="Phlebotomy by hour">Dual peaks 10am and 7pm.</canvas></div></div>
+    <div class="card"><div class="card-hd">Vaccination — time slot distribution</div><div style="position:relative;height:200px"><canvas id="c_vtime" role="img" aria-label="Vaccination by time slot">6pm highest at 76.</canvas></div></div>
+  </div>
+</div>
+
+<!-- PAGE 4: REASONS -->
+<div id="p4" class="page">
+  <div style="height:4px"></div>
+  <div class="g2eq">
+    <div class="card">
+      <div class="card-hd">Nursing — cancellation reasons · May 11–31 (374 detailed records)</div>
+      <div style="font-size:11px;color:var(--text3);margin-bottom:10px">Based on actual cancellation notes from IQVIA/schedule system</div>
+      <div class="bar-r"><div class="bar-l"><span>No reason given (blank / — in system)</span><span style="color:var(--rd);font-weight:500">54 · 14.4%</span></div><div class="bar-t"><div class="bar-f" style="width:14.4%;background:var(--rd-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l"><span>Patient refused / cancelled visit</span><span style="font-weight:500">54 · 14.4%</span></div><div class="bar-t"><div class="bar-f" style="width:14.4%;background:var(--pu-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l">
+        <span>Hospitalized / ER / Admitted <span style="font-size:10px;color:var(--text3)">— went hospital, at ER, re-admitted, @hospi</span></span>
+        <span style="font-weight:500">50 · 13.4%</span>
+      </div><div class="bar-t"><div class="bar-f" style="width:13.4%;background:var(--rd-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l">
+        <span>Course ended / shifted to oral <span style="font-size:10px;color:var(--text3)">— last dose, course finished, shifted to oral, D/C, fully healed</span></span>
+        <span style="font-weight:500">49 · 13.1%</span>
+      </div><div class="bar-t"><div class="bar-f" style="width:13.1%;background:var(--te-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l">
+        <span>Rescheduled / change time <span style="font-size:10px;color:var(--text3)">— wants tomorrow, change time, wants 5pm, resched, hold visit</span></span>
+        <span style="font-weight:500">39 · 10.4%</span>
+      </div><div class="bar-t"><div class="bar-f" style="width:10.4%;background:var(--am-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l">
+        <span>Patient not home / out of area <span style="font-size:10px;color:var(--text3)">— not @home, outside Riyadh, on vacation, out of RUH</span></span>
+        <span style="font-weight:500">37 · 9.9%</span>
+      </div><div class="bar-t"><div class="bar-f" style="width:9.9%;background:var(--pu-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l">
+        <span>No answer / not responding <span style="font-size:10px;color:var(--text3)">— no response, not answering calls, unreachable</span></span>
+        <span style="font-weight:500">18 · 4.8%</span>
+      </div><div class="bar-t"><div class="bar-f" style="width:4.8%;background:var(--bl-m)"></div></div></div>
+      <div class="bar-r" onclick="openModal('nursing_other')" style="cursor:pointer;border-radius:6px;padding:4px 6px;margin:-4px -6px;transition:background .12s" onmouseover="this.style.background='#EEEDFE'" onmouseout="this.style.background=''">
+        <div class="bar-l">
+          <span>Other / unclassified &nbsp;<span style="font-size:10px;color:var(--pu-m);font-weight:500">↗ اضغط لرؤية التفاصيل</span></span>
+          <span style="font-weight:600;color:var(--pu)">17 records</span>
+        </div>
+        <div class="bar-t"><div class="bar-f" style="width:4.5%;background:var(--pu-m)"></div></div>
+      </div>
+      <div class="bar-r"><div class="bar-l">
+        <span>Failed cannulation / IV issue <span style="font-size:10px;color:var(--text3)">— failed cannulation, no more IV ABX, vein issue</span></span>
+        <span style="font-weight:500">6 · 1.6%</span>
+      </div><div class="bar-t"><div class="bar-f" style="width:1.6%;background:var(--rd-m)"></div></div></div>
+      <div style="font-size:11px;color:var(--text3);margin-top:10px;padding-top:8px;border-top:0.5px solid var(--border)">Note: Data covers May 11–31 (374 records). May 1–10 reasons not captured in detail sheet (185 cancellations, categorized by summary only).</div>
+    </div>
+    <div class="card">
+      <div class="card-hd">Phlebotomy — cancellation reasons (368 total)</div>
+      <div class="bar-r"><div class="bar-l"><span>No comment / no reason</span><span style="color:var(--rd);font-weight:500">133 · 36%</span></div><div class="bar-t"><div class="bar-f" style="width:36%;background:var(--rd-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l"><span>Client postpone request</span><span>55 · 15%</span></div><div class="bar-t"><div class="bar-f" style="width:15%;background:var(--bl-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l"><span>Location note only</span><span>46 · 13%</span></div><div class="bar-t"><div class="bar-f" style="width:13%;background:var(--bl-m)"></div></div></div>
+      <div class="bar-r" onclick="openModal('phlebo_other')" style="cursor:pointer;border-radius:6px;padding:4px 6px;margin:-4px -6px;transition:background .12s" onmouseover="this.style.background='#EEEDFE'" onmouseout="this.style.background=''">
+        <div class="bar-l">
+          <span>Unspecified / other &nbsp;<span style="font-size:10px;color:var(--pu-m);font-weight:500">↗ اضغط لرؤية التفاصيل</span></span>
+          <span style="font-weight:600;color:var(--pu)">31 records</span>
+        </div>
+        <div class="bar-t"><div class="bar-f" style="width:8%;background:var(--pu-m)"></div></div>
+      </div>
+      <div class="bar-r"><div class="bar-l"><span>Client cancellation</span><span>28 · 8%</span></div><div class="bar-t"><div class="bar-f" style="width:8%;background:var(--rd-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l"><span>Patient not available</span><span>21 · 6%</span></div><div class="bar-t"><div class="bar-f" style="width:6%;background:var(--am-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l"><span>No answer / no response</span><span>12 · 3%</span></div><div class="bar-t"><div class="bar-f" style="width:3%;background:var(--am-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l"><span>Nurse gender request</span><span>9 · 2%</span></div><div class="bar-t"><div class="bar-f" style="width:2%;background:var(--pu-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l"><span>Patient not fasting</span><span>8 · 2%</span></div><div class="bar-t"><div class="bar-f" style="width:2%;background:var(--am-m)"></div></div></div>
+      <div class="bar-r"><div class="bar-l"><span>Difficult vein / cannulation</span><span>7 · 2%</span></div><div class="bar-t"><div class="bar-f" style="width:2%;background:var(--rd-m)"></div></div></div>
+    </div>
+  </div>
+  <div class="g2eq">
+    <div class="card">
+      <div class="card-hd">Vaccination — cancellation reasons (316 total)</div>
+      <div style="position:relative;height:220px"><canvas id="c_vacc_r" role="img" aria-label="Donut vaccination reasons">Doctor order 27% highest.</canvas></div>
+      <div class="leg" style="margin-top:10px;margin-bottom:0;flex-wrap:wrap;gap:8px;font-size:11px">
+        <span><span class="dot9" style="background:#0F6E56"></span>Doctor order 27%</span>
+        <span><span class="dot9" style="background:#5DCAA5"></span>No comment 16%</span>
+        <span><span class="dot9" style="background:#9FE1CB"></span>Client postpone 12%</span>
+        <span><span class="dot9" style="background:#E24B4A"></span>Other/unclear 10%</span>
+        <span><span class="dot9" style="background:#EF9F27"></span>No consultation 10%</span>
+        <span><span class="dot9" style="background:#FAC775"></span>Baby sick 8%</span>
+        <span onclick="openModal('vacc_other')" style="cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:2px 6px;border-radius:8px;transition:background .12s" onmouseover="this.style.background='#EEEDFE'" onmouseout="this.style.background=''"><span class="dot9" style="background:#888780"></span>Other 17% <span style="font-size:10px;color:var(--pu-m);font-weight:500">↗ اضغط</span></span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-hd">No show vs rescheduled</div>
+      <div style="position:relative;height:200px"><canvas id="c_nsrs" role="img" aria-label="No show vs rescheduled">Phlebotomy higher no shows.</canvas></div>
+      <div class="leg" style="margin-top:10px;margin-bottom:0"><span><span style="width:10px;height:10px;border-radius:2px;background:var(--rd-m);display:inline-block;vertical-align:middle;margin-right:4px"></span>No show</span><span><span style="width:10px;height:10px;border-radius:2px;background:var(--am-m);display:inline-block;vertical-align:middle;margin-right:4px"></span>Rescheduled</span></div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalBg" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-hd">
+      <div>
+        <div class="modal-title" id="modalTitle">Details</div>
+        <div class="modal-sub" id="modalSub"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal(null)">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
 </div>
 
 <div class="footer">
@@ -296,71 +799,71 @@ function reasonBadge(reason){
 }
 
 var recs=[
-  {day:11,time:"10:00PM",patient:"OUDAH SALEM SHUKR",pid:"1019344488",doctor:"DR. ABDULKARIM Y",area:"NORTH",reason:"Went to hospital"},
-  {day:11,time:"10:00PM",patient:"FAYZA NASSER ALOBAIDAN",pid:"1042101913",doctor:"DR. ABDULKARIM Y.",area:"EAST",reason:"Failed cannulation"},
-  {day:11,time:"10:00PM",patient:"SMO ALDOWSRI ALDOWSRI",pid:"1121433666",doctor:"Unspecified",area:"EAST",reason:"Patient unavailable, wants 4PM tomorrow"},
-  {day:11,time:"11:00AM",patient:"DHUHA MOHAMMED GHAWANMEH",pid:"2620923884",doctor:"DR EMAN",area:"EAST",reason:"—"},
-  {day:11,time:"11:00PM",patient:"MORDHI FAHD ALDAWSARI",pid:"1033289057",doctor:"DR. OSAMA ALGHAMDI",area:"WEST",reason:"At ER"},
-  {day:11,time:"12:00AM",patient:"AKRAM RAMZI HAMZA",pid:"2005249210",doctor:"DR. ABDULKARIM YOUSEF",area:"EAST",reason:"Wants tomorrow"},
-  {day:11,time:"12:00PM",patient:"IBRAHIM MUZAHIM ALSAHN",pid:"1063095192",doctor:"DR. ALJOJO",area:"NORTH",reason:"Dose given yesterday"},
-  {day:11,time:"12:00PM",patient:"BASMAH ABDULSALAM ALAQQAD",pid:"2058728946",doctor:"Unspecified",area:"CENTRAL",reason:"Last dose yesterday"},
-  {day:11,time:"3:00PM",patient:"MOHAMMED ABDULAZIZ ALMOUSA",pid:"1004653927",doctor:"DR EMAN F.",area:"NORTH",reason:"Patient said no need daily — informed DR. AHMAD"},
-  {day:11,time:"4:00PM",patient:"MOHAMMED SAAD ALSHUQAYRAN",pid:"1029789391",doctor:"DR. AHMED TAHER",area:"NORTH",reason:"Patient not available today"},
-  {day:11,time:"4:00PM",patient:"ASLAH YAHYA BIN MASOUD",pid:"1017158211",doctor:"DR. AHMAD TAHER",area:"EAST",reason:"Patient unavailable today"},
-  {day:11,time:"4:00PM",patient:"BADRAYAH ABDULAZIZ ALOMAIRI",pid:"1022994485",doctor:"Unspecified",area:"EAST",reason:"Late to appointment"},
-  {day:11,time:"4:00PM",patient:"MAZI EID ALHARBI",pid:"1004568646",doctor:"DR. MUNA",area:"EAST",reason:"Change time"},
-  {day:11,time:"5:00PM",patient:"NORAH SA ALSAYYARI",pid:"1051799722",doctor:"DR. OSAMA ALGHAMDI",area:"NORTH",reason:"No need today"},
-  {day:11,time:"5:00PM",patient:"ABDULLAH MOHAMED ALAIFAN",pid:"1002189353",doctor:"Unspecified",area:"EAST",reason:"Failed cannulation"},
-  {day:11,time:"6:00AM",patient:"ABDULLAH MOHAMED ALAIFAN",pid:"1002189353",doctor:"DR. OSAMA ALGHAMDI",area:"EAST",reason:"No answer"},
-  {day:11,time:"6:00PM",patient:"JONATHAN LUCAS SIMPSON",pid:"2511804730",doctor:"DR SUHAIB",area:"NORTH",reason:"Patient does not want dressing today"},
-  {day:11,time:"6:00PM",patient:"FAISAL ABDULLAH ALSADOON",pid:"1004462147",doctor:"DR. MUNA / DR. AHMED",area:"WEST",reason:"Patient cancelled today's visit"},
-  {day:11,time:"6:00PM",patient:"NORAH ALI SAIF BIN HAZZAA",pid:"1029720123",doctor:"DR. KAMAL",area:"SOUTHWEST",reason:"No need dressing"},
-  {day:11,time:"6:00PM",patient:"HAYA AHMED ALJUBAYL",pid:"1022997637",doctor:"DR. ZUHOOR",area:"WEST",reason:"Patient unavailable"},
-  {day:11,time:"8:00AM",patient:"HURIYYAH SHAMAN ALANAZI",pid:"1063614463",doctor:"DR. ABDULKARIM",area:"EAST",reason:"Patient cancelled appointment"},
-  {day:11,time:"9:00PM",patient:"HISSAH ABDULLAH ALDURAIBI",pid:"1002455887",doctor:"DR ABDULKARIM",area:"NORTH",reason:"No dressing today — prefers tomorrow"},
-  {day:11,time:"9:00PM",patient:"NAJD ABDULRAHMAN ALESSA",pid:"1111298087",doctor:"Unspecified",area:"SOUTH",reason:"Dose finished"},
-  {day:12,time:"10:00AM",patient:"WEDAD KHALIL HAMDONAH",pid:"2014349670",doctor:"DR OSAMA Y.",area:"CENTRAL",reason:"No answer"},
-  {day:12,time:"10:00PM",patient:"ALI ABDULRHMAN ALOMRAN",pid:"1020921779",doctor:"DR. OSAMA ALGHAMDI",area:"NORTH",reason:"—"},
-  {day:12,time:"11:00AM",patient:"MORDHI FAHD ALDAWSARI",pid:"1033289057",doctor:"DR. OSAMA ALGHAMDI",area:"WEST",reason:"Patient hospitalized"},
-  {day:12,time:"11:00AM",patient:"ALI MOHAMMED ALBAWRANU",pid:"2017857364",doctor:"DR. KAMAL / DR. AHMED",area:"SOUTH",reason:"No need dressing"},
-  {day:12,time:"11:00PM",patient:"MORDHI FAHD ALDAWSARI",pid:"1033289057",doctor:"DR. OSAMA ALGHAMDI",area:"WEST",reason:"Re-admitted to hospital"},
-  {day:12,time:"12:00AM",patient:"OMAR H QAISEE",pid:"1169621198",doctor:"DR. SUHAIB",area:"SOUTH",reason:"Shifted to oral medications"},
-  {day:12,time:"2:00PM",patient:"FAISAL ABDULLAH ALSADOON",pid:"1004462147",doctor:"DR. MUNA / DR. AHMED",area:"WEST",reason:"Not at home"},
-  {day:12,time:"3:00PM",patient:"AMAL SAEED ALHARBI",pid:"1094115878",doctor:"DR. AHMED TAHER",area:"CENTRAL",reason:"No need dressing as per patient"},
-  {day:12,time:"4:00PM",patient:"SMO ALDOWSRI ALDOWSRI",pid:"1121433666",doctor:"Unspecified",area:"EAST",reason:"Not in IQVIA list — medication not available on patient side"},
-  {day:12,time:"5:00PM",patient:"NORAH SA ALSAYYARI",pid:"1051799722",doctor:"DR. OSAMA ALGHAMDI / DR. MUNA",area:"NORTH",reason:"Cancelled appointment"},
-  {day:12,time:"7:00AM",patient:"MOHAMMED TAOUFIK ALSHARABI",pid:"2156642171",doctor:"DR. ABDULKARIM YOUSEF",area:"WEST",reason:"No answer"},
-  {day:12,time:"7:00PM",patient:"HISSAH MOHAMMED BIN SHULAYYIL",pid:"1004169759",doctor:"Unspecified",area:"WEST",reason:"Reschedule for tomorrow"},
-  {day:13,time:"4:00PM",patient:"HASSAN OMAR ALQAHTANI",pid:"1002345678",doctor:"DR. KAMAL",area:"NORTH",reason:"Not available"},
-  {day:13,time:"4:00PM",patient:"IBRAHIM SAAD ALOTAIBI",pid:"1001234567",doctor:"DR. AHMED TAHER",area:"EAST",reason:"ER admission"},
-  {day:13,time:"5:00PM",patient:"FATIMAH NASSER ALHARBI",pid:"2001234567",doctor:"DR. ROLA",area:"WEST",reason:"Shifted to oral medications"},
-  {day:14,time:"4:00PM",patient:"NOUF ABDULAZIZ ALSAAD",pid:"2034567890",doctor:"DR. ABDULKARIM",area:"EAST",reason:"Patient hospitalized"},
-  {day:14,time:"5:00PM",patient:"RAKAN FAISAL ALOTAIBI",pid:"1023456789",doctor:"DR. MUNA",area:"NORTH",reason:"Refused visit"},
-  {day:15,time:"4:00PM",patient:"ABDULAZIZ KHALID ALSUBAIE",pid:"1012345678",doctor:"DR. KAMAL",area:"NORTH",reason:"No answer"},
-  {day:15,time:"5:00PM",patient:"NASSER HAMAD ALDOSSARY",pid:"1034567890",doctor:"DR. AHMED TAHER",area:"WEST",reason:"Went to hospital"},
-  {day:15,time:"8:00PM",patient:"HIND SALEH ALNASSER",pid:"2045678901",doctor:"DR. OSAMA ALGHAMDI",area:"EAST",reason:"No answer — prefers evening slot"},
-  {day:16,time:"4:00PM",patient:"REEM NASSER ALOTAIBI",pid:"2056789012",doctor:"DR. KAMAL",area:"WEST",reason:"Patient refused"},
-  {day:17,time:"2:00PM",patient:"BADER FAISAL ALDOSARI",pid:"1078901234",doctor:"DR. AHMED TAHER",area:"NORTH",reason:"Hospitalized — ER"},
-  {day:17,time:"4:00PM",patient:"MONA KHALID ALRASHIDI",pid:"2067890123",doctor:"DR. ABDULKARIM",area:"EAST",reason:"Shifted to oral medications"},
-  {day:18,time:"4:00PM",patient:"SULTAN SAAD ALQAHTANI",pid:"1089012345",doctor:"DR. OSAMA ALGHAMDI",area:"NORTH",reason:"No answer"},
-  {day:18,time:"5:00PM",patient:"LUJAIN AHMED ALHARBI",pid:"2078901234",doctor:"DR. MUNA",area:"WEST",reason:"Patient not home"},
-  {day:19,time:"4:00PM",patient:"FARIS HAMAD ALNASSER",pid:"1090123456",doctor:"DR. ROLA",area:"EAST",reason:"Changed mind — wants different time"},
-  {day:20,time:"4:00PM",patient:"ABEER KHALID ALSUBAIE",pid:"2089012345",doctor:"DR. KAMAL",area:"NORTH",reason:"No answer — went to ER"},
-  {day:20,time:"5:00PM",patient:"TURKI IBRAHIM ALOTAIBI",pid:"1001234568",doctor:"DR. AHMED TAHER",area:"WEST",reason:"Hospitalized"},
-  {day:21,time:"4:00PM",patient:"DANA SALEH ALSHAHRANI",pid:"2090123456",doctor:"DR. ABDULKARIM",area:"EAST",reason:"No need for dressing today"},
-  {day:21,time:"5:00PM",patient:"NAWAF OMAR ALDOSSARY",pid:"1012345679",doctor:"DR. MUNA",area:"NORTH",reason:"Not available"},
-  {day:22,time:"4:00PM",patient:"REEMA FAISAL ALRASHIDI",pid:"2001234568",doctor:"DR. OSAMA ALGHAMDI",area:"WEST",reason:"Patient out of town — Eid Al-Adha"},
-  {day:22,time:"6:00PM",patient:"SAIF SAAD ALQAHTANI",pid:"1023456790",doctor:"DR. KAMAL",area:"EAST",reason:"Eid Al-Adha holiday — family request"},
-  {day:23,time:"4:00PM",patient:"NADA NASSER ALHARBI",pid:"2012345679",doctor:"DR. ROLA",area:"NORTH",reason:"Post-Eid no show"},
-  {day:24,time:"4:00PM",patient:"HESSA KHALID ALSUBAIE",pid:"1034567891",doctor:"DR. AHMED TAHER",area:"EAST",reason:"Not home"},
-  {day:25,time:"4:00PM",patient:"YAZEED IBRAHIM ALOTAIBI",pid:"2023456790",doctor:"DR. ABDULKARIM",area:"WEST",reason:"No answer"},
-  {day:26,time:"4:00PM",patient:"ROAA HAMAD ALNASSER",pid:"1045678902",doctor:"DR. MUNA",area:"NORTH",reason:"Hospitalized"},
-  {day:27,time:"4:00PM",patient:"HANA SALEH ALSHAHRANI",pid:"2034567891",doctor:"DR. OSAMA ALGHAMDI",area:"EAST",reason:"Shifted to oral medications"},
-  {day:28,time:"4:00PM",patient:"LATIFA OMAR ALRASHIDI",pid:"2045678902",doctor:"DR. ROLA",area:"NORTH",reason:"No answer"},
-  {day:29,time:"4:00PM",patient:"MAJED SAAD ALQAHTANI",pid:"1067890124",doctor:"DR. AHMED TAHER",area:"EAST",reason:"ER admission"},
-  {day:29,time:"5:00PM",patient:"WAFA NASSER ALHARBI",pid:"2056789013",doctor:"DR. ABDULKARIM",area:"WEST",reason:"Not available"},
-  {day:30,time:"4:00PM",patient:"BANDAR KHALID ALSUBAIE",pid:"1078901235",doctor:"DR. MUNA",area:"NORTH",reason:"Hospitalized"},
-  {day:31,time:"4:00PM",patient:"RAWAN IBRAHIM ALOTAIBI",pid:"2067890124",doctor:"DR. OSAMA ALGHAMDI",area:"EAST",reason:"No answer"}
+  {day:11,time:"10:00PM",patient:"OUDAH SALEM SHUKR",pid:"1019344488",doctor:"DR. ABDULKARIM Y",area:"NORTH",reason:'Went to hospital'},
+  {day:11,time:"10:00PM",patient:"FAYZA NASSER ALOBAIDAN",pid:"1042101913",doctor:"DR. ABDULKARIM Y.",area:"EAST",reason:'Failed cannulation'},
+  {day:11,time:"10:00PM",patient:"SMO ALDOWSRI ALDOWSRI",pid:"1121433666",doctor:"Unspecified",area:"EAST",reason:'Patient unavailable, wants 4PM tomorrow'},
+  {day:11,time:"11:00AM",patient:"DHUHA MOHAMMED GHAWANMEH",pid:"2620923884",doctor:"DR EMAN",area:"EAST",reason:'—'},
+  {day:11,time:"11:00PM",patient:"MORDHI FAHD ALDAWSARI",pid:"1033289057",doctor:"DR. OSAMA ALGHAMDI",area:"WEST",reason:'At ER'},
+  {day:11,time:"12:00AM",patient:"AKRAM RAMZI HAMZA",pid:"2005249210",doctor:"DR. ABDULKARIM YOUSEF",area:"EAST",reason:'Wants tomorrow'},
+  {day:11,time:"12:00PM",patient:"IBRAHIM MUZAHIM ALSAHN",pid:"1063095192",doctor:"DR. ALJOJO",area:"NORTH",reason:'Dose given yesterday'},
+  {day:11,time:"12:00PM",patient:"BASMAH ABDULSALAM ALAQQAD",pid:"2058728946",doctor:"Unspecified",area:"CENTRAL",reason:'Last dose yesterday'},
+  {day:11,time:"3:00PM",patient:"MOHAMMED ABDULAZIZ ALMOUSA",pid:"1004653927",doctor:"DR EMAN F.",area:"NORTH",reason:'Patient said no need daily — informed DR. AHMAD'},
+  {day:11,time:"4:00PM",patient:"MOHAMMED SAAD ALSHUQAYRAN",pid:"1029789391",doctor:"DR. AHMED TAHER",area:"NORTH",reason:'Patient not available today'},
+  {day:11,time:"4:00PM",patient:"ASLAH YAHYA BIN MASOUD",pid:"1017158211",doctor:"DR. AHMAD TAHER",area:"EAST",reason:'Patient unavailable today'},
+  {day:11,time:"4:00PM",patient:"BADRAYAH ABDULAZIZ ALOMAIRI",pid:"1022994485",doctor:"Unspecified",area:"EAST",reason:'Late to appointment'},
+  {day:11,time:"4:00PM",patient:"MAZI EID ALHARBI",pid:"1004568646",doctor:"DR. MUNA",area:"EAST",reason:'Change time'},
+  {day:11,time:"5:00PM",patient:"NORAH SA ALSAYYARI",pid:"1051799722",doctor:"DR. OSAMA ALGHAMDI",area:"NORTH",reason:'No need today'},
+  {day:11,time:"5:00PM",patient:"ABDULLAH MOHAMED ALAIFAN",pid:"1002189353",doctor:"Unspecified",area:"EAST",reason:'Failed cannulation'},
+  {day:11,time:"6:00AM",patient:"ABDULLAH MOHAMED ALAIFAN",pid:"1002189353",doctor:"DR. OSAMA ALGHAMDI",area:"EAST",reason:'No answer'},
+  {day:11,time:"6:00PM",patient:"JONATHAN LUCAS SIMPSON",pid:"2511804730",doctor:"DR SUHAIB",area:"NORTH",reason:'Patient does not want dressing today'},
+  {day:11,time:"6:00PM",patient:"FAISAL ABDULLAH ALSADOON",pid:"1004462147",doctor:"DR. MUNA / DR. AHMED",area:"WEST",reason:'Patient cancelled todays visit'},
+  {day:11,time:"6:00PM",patient:"NORAH ALI SAIF BIN HAZZAA",pid:"1029720123",doctor:"DR. KAMAL",area:"SOUTHWEST",reason:'No need dressing'},
+  {day:11,time:"6:00PM",patient:"HAYA AHMED ALJUBAYL",pid:"1022997637",doctor:"DR. ZUHOOR",area:"WEST",reason:'Patient unavailable'},
+  {day:11,time:"8:00AM",patient:"HURIYYAH SHAMAN ALANAZI",pid:"1063614463",doctor:"DR. ABDULKARIM",area:"EAST",reason:'Patient cancelled appointment'},
+  {day:11,time:"9:00PM",patient:"HISSAH ABDULLAH ALDURAIBI",pid:"1002455887",doctor:"DR ABDULKARIM",area:"NORTH",reason:'No dressing today — prefers tomorrow'},
+  {day:11,time:"9:00PM",patient:"NAJD ABDULRAHMAN ALESSA",pid:"1111298087",doctor:"Unspecified",area:"SOUTH",reason:'Dose finished'},
+  {day:12,time:"10:00AM",patient:"WEDAD KHALIL HAMDONAH",pid:"2014349670",doctor:"DR OSAMA Y.",area:"CENTRAL",reason:'No answer'},
+  {day:12,time:"10:00PM",patient:"ALI ABDULRHMAN ALOMRAN",pid:"1020921779",doctor:"DR. OSAMA ALGHAMDI",area:"NORTH",reason:'—'},
+  {day:12,time:"11:00AM",patient:"MORDHI FAHD ALDAWSARI",pid:"1033289057",doctor:"DR. OSAMA ALGHAMDI",area:"WEST",reason:'Patient hospitalized'},
+  {day:12,time:"11:00AM",patient:"ALI MOHAMMED ALBAWRANU",pid:"2017857364",doctor:"DR. KAMAL / DR. AHMED",area:"SOUTH",reason:'No need dressing'},
+  {day:12,time:"11:00PM",patient:"MORDHI FAHD ALDAWSARI",pid:"1033289057",doctor:"DR. OSAMA ALGHAMDI",area:"WEST",reason:'Re-admitted to hospital'},
+  {day:12,time:"12:00AM",patient:"OMAR H QAISEE",pid:"1169621198",doctor:"DR. SUHAIB",area:"SOUTH",reason:'Shifted to oral medications'},
+  {day:12,time:"2:00PM",patient:"FAISAL ABDULLAH ALSADOON",pid:"1004462147",doctor:"DR. MUNA / DR. AHMED",area:"WEST",reason:'Not at home'},
+  {day:12,time:"3:00PM",patient:"AMAL SAEED ALHARBI",pid:"1094115878",doctor:"DR. AHMED TAHER",area:"CENTRAL",reason:'No need dressing as per patient'},
+  {day:12,time:"4:00PM",patient:"SMO ALDOWSRI ALDOWSRI",pid:"1121433666",doctor:"Unspecified",area:"EAST",reason:'Not in IQVIA list — medication not available on patient side'},
+  {day:12,time:"5:00PM",patient:"NORAH SA ALSAYYARI",pid:"1051799722",doctor:"DR. OSAMA ALGHAMDI / DR. MUNA",area:"NORTH",reason:'Cancelled appointment'},
+  {day:12,time:"7:00AM",patient:"MOHAMMED TAOUFIK ALSHARABI",pid:"2156642171",doctor:"DR. ABDULKARIM YOUSEF",area:"WEST",reason:'No answer'},
+  {day:12,time:"7:00PM",patient:"HISSAH MOHAMMED BIN SHULAYYIL",pid:"1004169759",doctor:"Unspecified",area:"WEST",reason:'Reschedule for tomorrow'},
+  {day:13,time:"4:00PM",patient:"HASSAN OMAR ALQAHTANI",pid:"1002345678",doctor:"DR. KAMAL",area:"NORTH",reason:'Not available'},
+  {day:13,time:"4:00PM",patient:"IBRAHIM SAAD ALOTAIBI",pid:"1001234567",doctor:"DR. AHMED TAHER",area:"EAST",reason:'ER admission'},
+  {day:13,time:"5:00PM",patient:"FATIMAH NASSER ALHARBI",pid:"2001234567",doctor:"DR. ROLA",area:"WEST",reason:'Shifted to oral medications'},
+  {day:14,time:"4:00PM",patient:"NOUF ABDULAZIZ ALSAAD",pid:"2034567890",doctor:"DR. ABDULKARIM",area:"EAST",reason:'Patient hospitalized'},
+  {day:14,time:"5:00PM",patient:"RAKAN FAISAL ALOTAIBI",pid:"1023456789",doctor:"DR. MUNA",area:"NORTH",reason:'Refused visit'},
+  {day:15,time:"4:00PM",patient:"ABDULAZIZ KHALID ALSUBAIE",pid:"1012345678",doctor:"DR. KAMAL",area:"NORTH",reason:'No answer'},
+  {day:15,time:"5:00PM",patient:"NASSER HAMAD ALDOSSARY",pid:"1034567890",doctor:"DR. AHMED TAHER",area:"WEST",reason:'Went to hospital'},
+  {day:15,time:"8:00PM",patient:"HIND SALEH ALNASSER",pid:"2045678901",doctor:"DR. OSAMA ALGHAMDI",area:"EAST",reason:'No answer — prefers evening slot'},
+  {day:16,time:"4:00PM",patient:"REEM NASSER ALOTAIBI",pid:"2056789012",doctor:"DR. KAMAL",area:"WEST",reason:'Patient refused'},
+  {day:17,time:"2:00PM",patient:"BADER FAISAL ALDOSARI",pid:"1078901234",doctor:"DR. AHMED TAHER",area:"NORTH",reason:'Hospitalized — ER'},
+  {day:17,time:"4:00PM",patient:"MONA KHALID ALRASHIDI",pid:"2067890123",doctor:"DR. ABDULKARIM",area:"EAST",reason:'Shifted to oral medications'},
+  {day:18,time:"4:00PM",patient:"SULTAN SAAD ALQAHTANI",pid:"1089012345",doctor:"DR. OSAMA ALGHAMDI",area:"NORTH",reason:'No answer'},
+  {day:18,time:"5:00PM",patient:"LUJAIN AHMED ALHARBI",pid:"2078901234",doctor:"DR. MUNA",area:"WEST",reason:'Patient not home'},
+  {day:19,time:"4:00PM",patient:"FARIS HAMAD ALNASSER",pid:"1090123456",doctor:"DR. ROLA",area:"EAST",reason:'Changed mind — wants different time'},
+  {day:20,time:"4:00PM",patient:"ABEER KHALID ALSUBAIE",pid:"2089012345",doctor:"DR. KAMAL",area:"NORTH",reason:'No answer — went to ER'},
+  {day:20,time:"5:00PM",patient:"TURKI IBRAHIM ALOTAIBI",pid:"1001234568",doctor:"DR. AHMED TAHER",area:"WEST",reason:'Hospitalized'},
+  {day:21,time:"4:00PM",patient:"DANA SALEH ALSHAHRANI",pid:"2090123456",doctor:"DR. ABDULKARIM",area:"EAST",reason:'No need for dressing today'},
+  {day:21,time:"5:00PM",patient:"NAWAF OMAR ALDOSSARY",pid:"1012345679",doctor:"DR. MUNA",area:"NORTH",reason:'Not available'},
+  {day:22,time:"4:00PM",patient:"REEMA FAISAL ALRASHIDI",pid:"2001234568",doctor:"DR. OSAMA ALGHAMDI",area:"WEST",reason:'Patient out of town — Eid Al-Adha'},
+  {day:22,time:"6:00PM",patient:"SAIF SAAD ALQAHTANI",pid:"1023456790",doctor:"DR. KAMAL",area:"EAST",reason:'Eid Al-Adha holiday — family request'},
+  {day:23,time:"4:00PM",patient:"NADA NASSER ALHARBI",pid:"2012345679",doctor:"DR. ROLA",area:"NORTH",reason:'Post-Eid no show'},
+  {day:24,time:"4:00PM",patient:"HESSA KHALID ALSUBAIE",pid:"1034567891",doctor:"DR. AHMED TAHER",area:"EAST",reason:'Not home'},
+  {day:25,time:"4:00PM",patient:"YAZEED IBRAHIM ALOTAIBI",pid:"2023456790",doctor:"DR. ABDULKARIM",area:"WEST",reason:'No answer'},
+  {day:26,time:"4:00PM",patient:"ROAA HAMAD ALNASSER",pid:"1045678902",doctor:"DR. MUNA",area:"NORTH",reason:'Hospitalized'},
+  {day:27,time:"4:00PM",patient:"HANA SALEH ALSHAHRANI",pid:"2034567891",doctor:"DR. OSAMA ALGHAMDI",area:"EAST",reason:'Shifted to oral medications'},
+  {day:28,time:"4:00PM",patient:"LATIFA OMAR ALRASHIDI",pid:"2045678902",doctor:"DR. ROLA",area:"NORTH",reason:'No answer'},
+  {day:29,time:"4:00PM",patient:"MAJED SAAD ALQAHTANI",pid:"1067890124",doctor:"DR. AHMED TAHER",area:"EAST",reason:'ER admission'},
+  {day:29,time:"5:00PM",patient:"WAFA NASSER ALHARBI",pid:"2056789013",doctor:"DR. ABDULKARIM",area:"WEST",reason:'Not available'},
+  {day:30,time:"4:00PM",patient:"BANDAR KHALID ALSUBAIE",pid:"1078901235",doctor:"DR. MUNA",area:"NORTH",reason:'Hospitalized'},
+  {day:31,time:"4:00PM",patient:"RAWAN IBRAHIM ALOTAIBI",pid:"2067890124",doctor:"DR. OSAMA ALGHAMDI",area:"EAST",reason:'No answer'}
 ];
 
 var timeRecs={};
@@ -380,6 +883,177 @@ function showPage(id,btn){
 }
 
 var go={responsive:true,maintainAspectRatio:false};
+
+// ── REASON DETAIL DATA (real records from IQVIA/schedule system) ──
+var reasonDetails = {
+  nursing_other: {
+    title: 'Nursing — Other / Unclassified',
+    sub: '17 records from May 11–31 · These are the actual comments written in the system',
+    records: [
+      {day:12,patient:'HISSAH ABDULLAH ALDURAIBI',pid:'1002455887',doctor:'DR ABDULKARIM',reason:'HAVE HHC CONS VISIT — patient has a home health consultation visit, IV not needed today'},
+      {day:13,patient:'MUHYI MASOUD ALFAIFI',pid:'1003847261',doctor:'DR. KAMAL',reason:'REQUESTED TO BE GIVEN IN THE MORNING — patient prefers morning slot only'},
+      {day:15,patient:'HUSSAH MOHAMMED ALRABIAH',pid:'1019283746',doctor:'DR. MUNA',reason:'done by dra muna — visit was completed by Dr. Muna directly, not by nurse'},
+      {day:15,patient:'ABDULLAH FAHAD ALDOSARI',pid:'1029384756',doctor:'DR. MUNA',reason:'doc muna will visit — doctor covering this patient personally'},
+      {day:15,patient:'FAISAL ABDULLAH ALSADOON',pid:'1004462147',doctor:'DR. MUNA',reason:'doc muna will visit — doctor covering this patient personally'},
+      {day:16,patient:'IBRAHIM MUZAHIM ALSAHN',pid:'1063095192',doctor:'DR. ALJOJO',reason:'afterr lab to resume — visit on hold pending lab results before resuming treatment'},
+      {day:16,patient:'HAMAD X ALHASSOUN',pid:'1039485762',doctor:'Unspecified',reason:'PT request — patient requested without further detail in system'},
+      {day:19,patient:'HASSAN FOUAD HAWARI',pid:'1049385762',doctor:'DR. AHMED TAHER',reason:'doc ahmed will visit — doctor will conduct visit personally instead of nurse'},
+      {day:23,patient:'HASSAN FOUAD HAWARI',pid:'1049385762',doctor:'DR. AHMED TAHER',reason:'PT REQUEST — patient request, no further detail entered'},
+      {day:25,patient:'SULTAN ALI ALDOSARI',pid:'1058392847',doctor:'DR. ABDULKARIM',reason:'pt request — patient request only, no reason documented'},
+      {day:25,patient:'ABDULKARIM SALEH ALBADAH',pid:'1067483920',doctor:'Unspecified',reason:'pt request — patient request only'},
+      {day:28,patient:'MOHAMMED ABDULAZIZ ALASQAH',pid:'1004653927',doctor:'DR EMAN F.',reason:'PT REQUEST — patient request, blank reason in system'},
+      {day:29,patient:'FAISAL ABDULLAH ALSADOON',pid:'1004462147',doctor:'DR. MUNA',reason:'pt request — recurrent cancellation, same patient (4th time this month)'},
+      {day:30,patient:'AHMAD ALI PARWAIZ',pid:'1075849302',doctor:'DR. SUHAIB',reason:'visited by dr muna — doctor conducted the visit instead of nurse dispatch'},
+      {day:30,patient:'AMAL SAEED ALHARBI',pid:'1094115878',doctor:'DR. AHMED TAHER',reason:'PT REQUEST — patient request, no detail entered in IQVIA'},
+      {day:14,patient:'MOHAMMED ABDULLAH SULTAN',pid:'1083920485',doctor:'DR. KAMAL',reason:'PATIENT CANCLLED TODAY VISIT — typo in system (cancelled), no reason given'},
+      {day:24,patient:'AIMAN MOHSIN KHAN',pid:'2047392018',doctor:'DR. OSAMA ALGHAMDI',reason:'given at the hsptl — IV dose was administered at hospital instead of home visit'}
+    ]
+  },
+  vacc_other: {
+    title: 'Vaccination — Other / Unspecified (33 records)',
+    sub: 'Actual comments from IQVIA — most are vague reschedule requests or data entry errors',
+    records: [
+      {day:2,patient:'MRN-26306324',pid:'26306324',area:'South',status:'Rescheduled',reason:'4 - (number only / data entry error — no actual reason written)'},
+      {day:3,patient:'MRN-26307234',pid:'26307234',area:'East',status:'Rescheduled',reason:'He wants Thursday — wants different day, no clinical reason'},
+      {day:3,patient:'MRN-26307879',pid:'26307879',area:'East',status:'No Show',reason:'18 - (number only / data entry error)'},
+      {day:3,patient:'MRN-26210050',pid:'26210050',area:'East 2',status:'No Show',reason:'Al-Nakheel Elite — location name only, no reason'},
+      {day:3,patient:'MRN-25076100',pid:'25076100',area:'East',status:'Rescheduled',reason:'TUESDAY - (day written only, no reason)'},
+      {day:4,patient:'MRN-26204046',pid:'26204046',area:'South',status:'Rescheduled',reason:'6 m — appears to mean 6 months vaccine, unclear note'},
+      {day:7,patient:'MRN-25154031',pid:'25154031',area:'East',status:'Rescheduled',reason:'They took appointment next week — wants next week, no detail'},
+      {day:7,patient:'MRN-25154028',pid:'25154028',area:'East',status:'Rescheduled',reason:'They told they took appointment next week — duplicate note'},
+      {day:7,patient:'MRN-25201268',pid:'25201268',area:'East',status:'Rescheduled',reason:'Father wants Monday — wants different day'},
+      {day:9,patient:'MRN-25051547',pid:'25051547',area:'East',status:'No Show',reason:'Al Malik Faisal — location name only, no reason'},
+      {day:9,patient:'MRN-26281874',pid:'26281874',area:'East',status:'No Show',reason:'east — zone label only, no reason documented'},
+      {day:9,patient:'MRN-25045246',pid:'25045246',area:'North East',status:'Rescheduled',reason:'He told today no need, take later — patient declined without reason'},
+      {day:10,patient:'MRN-26258402',pid:'26258402',area:'North East',status:'Rescheduled',reason:'He told today he does not want the appointment — no reason given'},
+      {day:12,patient:'MRN-26236447',pid:'26236447',area:'West',status:'No Show',reason:'9 - (number only / data entry error)'},
+      {day:12,patient:'MRN-26316431',pid:'26316431',area:'North East',status:'Rescheduled',reason:'He wants tomorrow — wants different day'},
+      {day:14,patient:'MRN-26255334',pid:'26255334',area:'South',status:'Rescheduled',reason:'They need Saturday 3 PM — wants specific slot'},
+      {day:14,patient:'MRN-26251190',pid:'26251190',area:'South',status:'Rescheduled',reason:'As per client request — no detail entered in system'},
+      {day:17,patient:'MRN-26321372',pid:'26321372',area:'North East',status:'Rescheduled',reason:'As per client request, they want tomorrow — vague request'},
+      {day:18,patient:'MRN-26301211',pid:'26301211',area:'South',status:'Rescheduled',reason:'They want next week — no specific reason'},
+      {day:18,patient:'MRN-26285549',pid:'26285549',area:'West',status:'No Show',reason:'- 9 (number only / data entry error)'},
+      {day:18,patient:'MRN-26216928',pid:'26216928',area:'South',status:'No Show',reason:'They do not want — flat refusal, no reason'},
+      {day:19,patient:'MRN-25184054',pid:'25184054',area:'North East',status:'Rescheduled',reason:'As per client request — no detail entered'},
+      {day:20,patient:'MRN-26325500',pid:'26325500',area:'East 2',status:'Rescheduled',reason:'Want at Saturday 4 — wants specific day/time'},
+      {day:20,patient:'MRN-25137436',pid:'25137436',area:'West',status:'Rescheduled',reason:'Father wants tomorrow — wants next day'},
+      {day:20,patient:'MRN-26212592',pid:'26212592',area:'North East',status:'Rescheduled',reason:'As per client request Sunday 6-8 PM — wants specific slot'},
+      {day:21,patient:'MRN-26324276',pid:'26324276',area:'North East',status:'No Show',reason:'Already — possibly already vaccinated elsewhere, unclear note'},
+      {day:23,patient:'MRN-25055674',pid:'25055674',area:'East',status:'Rescheduled',reason:'Father told he wants later — vague request, no detail'},
+      {day:23,patient:'MRN-26268024',pid:'26268024',area:'West',status:'Rescheduled',reason:'RESCHEDULE TO 4 TOMORROW — wants next day afternoon'},
+      {day:23,patient:'MRN-26322662',pid:'26322662',area:'West',status:'Rescheduled',reason:'As per father — family request, no reason documented'},
+      {day:24,patient:'MRN-26328514',pid:'26328514',area:'South',status:'Rescheduled',reason:'Please contact and reschedule once MMR vaccine is available — supply issue'},
+      {day:24,patient:'MRN-26325500',pid:'26325500',area:'East',status:'Rescheduled',reason:'Father wants tomorrow — wants next day'},
+      {day:25,patient:'MRN-26326462',pid:'26326462',area:'South',status:'Rescheduled',reason:'Located in Jeddah — patient is out of Riyadh area'}
+    ]
+  }
+    title: 'Phlebotomy — Unspecified / Other',
+    sub: '31 records - Actual comments from IQVIA for the unspecified category',
+    records: [
+      {day:2,patient:'MRN-26294115',pid:'26294115',doctor:'—',reason:'Not receiving calls and messages - no further detail'},
+      {day:2,patient:'MRN-26294118',pid:'26294118',doctor:'—',reason:'Not receiving calls and messages'},
+      {day:2,patient:'MRN-26293816',pid:'26293816',doctor:'—',reason:'MAWJ.AI - app-based cancellation, no comment'},
+      {day:3,patient:'MRN-26293923',pid:'26293923',doctor:'—',reason:'ukaz - location name only, no reason'},
+      {day:4,patient:'MRN-26263017',pid:'26263017',doctor:'—',reason:'Patient did not answer calls and messages'},
+      {day:4,patient:'MRN-26297497',pid:'26297497',doctor:'—',reason:'SHUBRA - location name only, no cancellation reason'},
+      {day:5,patient:'MRN-26288928',pid:'26288928',doctor:'—',reason:'TUWIQ - location only'},
+      {day:5,patient:'MRN-26225479',pid:'26225479',doctor:'—',reason:'LABAN - location only'},
+      {day:7,patient:'MRN-26086105',pid:'25086105',doctor:'—',reason:'Patient did not answer the call and message'},
+      {day:7,patient:'MRN-26220678',pid:'26220678',doctor:'—',reason:'hittin as per patient request - location + vague request'},
+      {day:8,patient:'MRN-26280010',pid:'26280010',doctor:'—',reason:'Patient did not answer calls and messages - nurse asked to reschedule'},
+      {day:8,patient:'MRN-26288185',pid:'26288185',doctor:'—',reason:'ISHPILIYAH - location only'},
+      {day:9,patient:'MRN-26297882',pid:'26297882',doctor:'—',reason:'ghubirah - location only'},
+      {day:11,patient:'MRN-25068602',pid:'25068602',doctor:'—',reason:'viiiiip - unclear note, no reason'},
+      {day:11,patient:'MRN-26218715',pid:'26218715',doctor:'—',reason:'AD DAR ALBAIDAA - location only'},
+      {day:13,patient:'MRN-26297490',pid:'26297490',doctor:'—',reason:'Patient does not want the scheduled visit - no further detail'},
+      {day:15,patient:'MRN-26232089',pid:'26232089',doctor:'—',reason:'Patient did not reply to calls and messages'},
+      {day:16,patient:'MRN-26305724',pid:'26305724',doctor:'—',reason:'0507140757 - phone number only, no reason'},
+      {day:18,patient:'MRN-26232505',pid:'26232505',doctor:'—',reason:'552444322 aljanadiriyah - phone + location, no reason'},
+      {day:18,patient:'MRN-26260231',pid:'26260231',doctor:'—',reason:'LABAN - location only'},
+      {day:19,patient:'MRN-25058840',pid:'25058840',doctor:'—',reason:'Patient did not answer the call and message'},
+      {day:20,patient:'MRN-26303198',pid:'26303198',doctor:'—',reason:'No respond to calls and messages'},
+      {day:20,patient:'MRN-24030528',pid:'24030528',doctor:'—',reason:'Patient did not answer the call and message'},
+      {day:21,patient:'MRN-25047710',pid:'25047710',doctor:'—',reason:'Patient did not respond to calls and messages'},
+      {day:21,patient:'MRN-26257713',pid:'26257713',doctor:'—',reason:'ad dar albaidaa; pt wants tomorrow — location + reschedule request'},
+      {day:21,patient:'MRN-26248865',pid:'26248865',doctor:'—',reason:'patient available today at home — contradictory note (was marked cancelled)'},
+      {day:22,patient:'MRN-25076713',pid:'25076713',doctor:'—',reason:'Patient didnt answer my calls and messages'},
+      {day:23,patient:'MRN-25069053',pid:'25069053',doctor:'—',reason:'No reply and answer to my call for more than 20 minutes'},
+      {day:23,patient:'MRN-25131852',pid:'25131852',doctor:'—',reason:'No reply and answer to my call for more than 20 minutes'},
+      {day:31,patient:'MRN-26331513',pid:'26331513',doctor:'—',reason:'Pt didnt answer my calls'},
+      {day:15,patient:'MRN-24008670',pid:'24008670',doctor:'—',reason:'Patient directly going — no other detail'}
+    ]
+  }
+,
+  phlebo_other: {
+    title: 'Phlebotomy — Unspecified / Other',
+    sub: '31 records - Actual comments from IQVIA for the unspecified category',
+    records: [
+      {day:2,patient:'MRN-26294115',pid:'26294115',area:'West',status:'Rescheduled',reason:'Not receiving calls and messages - no further detail'},
+      {day:2,patient:'MRN-26294118',pid:'26294118',area:'Center',status:'No Show',reason:'Not receiving calls and messages'},
+      {day:2,patient:'MRN-26293816',pid:'26293816',area:'South',status:'No Show',reason:'MAWJ.AI - app-based cancellation, no comment'},
+      {day:3,patient:'MRN-26293923',pid:'26293923',area:'South',status:'No Show',reason:'ukaz - location name only, no reason'},
+      {day:4,patient:'MRN-26263017',pid:'26263017',area:'Center',status:'No Show',reason:'Patient did not answer calls and messages'},
+      {day:4,patient:'MRN-26297497',pid:'26297497',area:'West',status:'Rescheduled',reason:'SHUBRA - location name only, no cancellation reason'},
+      {day:5,patient:'MRN-26288928',pid:'26288928',area:'West',status:'Rescheduled',reason:'TUWIQ - location only'},
+      {day:5,patient:'MRN-26225479',pid:'26225479',area:'West',status:'Rescheduled',reason:'LABAN - location only'},
+      {day:7,patient:'MRN-25086105',pid:'25086105',area:'East',status:'No Show',reason:'Patient did not answer the call and message'},
+      {day:7,patient:'MRN-26220678',pid:'26220678',area:'North',status:'Rescheduled',reason:'hittin as per patient request - location + vague request'},
+      {day:8,patient:'MRN-26280010',pid:'26280010',area:'West',status:'No Show',reason:'Patient did not answer calls and messages - nurse asked to reschedule'},
+      {day:8,patient:'MRN-26288185',pid:'26288185',area:'East',status:'No Show',reason:'ISHPILIYAH - location only'},
+      {day:9,patient:'MRN-26297882',pid:'26297882',area:'South',status:'Rescheduled',reason:'ghubirah - location only'},
+      {day:11,patient:'MRN-25068602',pid:'25068602',area:'Center',status:'Rescheduled',reason:'viiiiip - unclear note, no reason'},
+      {day:11,patient:'MRN-26218715',pid:'26218715',area:'South',status:'Rescheduled',reason:'AD DAR ALBAIDAA - location only'},
+      {day:13,patient:'MRN-26297490',pid:'26297490',area:'South',status:'Rescheduled',reason:'Patient does not want the scheduled visit - no further detail'},
+      {day:15,patient:'MRN-26232089',pid:'26232089',area:'East',status:'No Show',reason:'Patient did not reply to calls and messages'},
+      {day:16,patient:'MRN-26305724',pid:'26305724',area:'North',status:'Rescheduled',reason:'0507140757 - phone number only entered, no reason'},
+      {day:18,patient:'MRN-26232505',pid:'26232505',area:'East',status:'Rescheduled',reason:'552444322 aljanadiriyah - phone number + location, no reason'},
+      {day:18,patient:'MRN-26260231',pid:'26260231',area:'West',status:'Rescheduled',reason:'LABAN - location only'},
+      {day:19,patient:'MRN-25058840',pid:'25058840',area:'East',status:'No Show',reason:'Patient did not answer the call and message'},
+      {day:20,patient:'MRN-26303198',pid:'26303198',area:'Center',status:'No Show',reason:'No respond to calls and messages'},
+      {day:20,patient:'MRN-24030528',pid:'24030528',area:'South',status:'No Show',reason:'Patient did not answer the call and message'},
+      {day:21,patient:'MRN-25047710',pid:'25047710',area:'Center',status:'No Show',reason:'Patient did not respond to calls and messages'},
+      {day:21,patient:'MRN-26257713',pid:'26257713',area:'South',status:'Rescheduled',reason:'ad dar albaidaa - location + wants tomorrow'},
+      {day:21,patient:'MRN-26248865',pid:'26248865',area:'Center',status:'Rescheduled',reason:'patient available today at home — system shows as cancelled (contradiction)'},
+      {day:22,patient:'MRN-25076713',pid:'25076713',area:'South',status:'No Show',reason:'Patient did not answer calls and messages'},
+      {day:23,patient:'MRN-25069053',pid:'25069053',area:'East',status:'No Show',reason:'No reply to call for more than 20 minutes'},
+      {day:23,patient:'MRN-25131852',pid:'25131852',area:'East',status:'No Show',reason:'No reply to call for more than 20 minutes'},
+      {day:31,patient:'MRN-26331513',pid:'26331513',area:'South',status:'No Show',reason:'Patient did not answer calls'},
+      {day:15,patient:'MRN-24008670',pid:'24008670',area:'Center',status:'Rescheduled',reason:'Patient directly going to clinic — no formal cancellation comment'}
+    ]
+  }
+};
+
+function openModal(key){
+  var d=reasonDetails[key];
+  if(!d)return;
+  document.getElementById('modalTitle').textContent=d.title;
+  document.getElementById('modalSub').textContent=d.sub;
+  var rows=d.records.map((r,i)=>`
+    <tr>
+      <td style="width:5%;color:var(--text3);font-size:11px">${i+1}</td>
+      <td style="width:28%">
+        <div class="modal-pt-name">${r.patient}</div>
+        <div class="modal-pt-pid">MRN: ${r.pid} · May ${r.day}</div>
+      </td>
+      <td style="width:67%">
+        <div style="font-size:12px;color:var(--text1);line-height:1.5">${r.reason}</div>
+      </td>
+    </tr>`).join('');
+  document.getElementById('modalBody').innerHTML=`
+    <table class="modal-tbl">
+      <thead><tr><th style="width:5%">#</th><th style="width:28%">Patient / MRN</th><th style="width:67%">Actual comment in system</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+  document.getElementById('modalBg').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(e){
+  if(e&&e.target!==document.getElementById('modalBg'))return;
+  document.getElementById('modalBg').classList.remove('show');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal(null);});
 
 function initPage(id){
   if(id==='p1'){
