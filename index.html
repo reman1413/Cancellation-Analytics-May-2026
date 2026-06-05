@@ -284,7 +284,7 @@ var dayAnn={1:"Start of month — all services active",2:"Phlebotomy spike: 26 c
 var dayNT={15:"warn",22:"warn",24:"info",4:"warn",2:"warn",8:"warn",21:"warn",23:"warn",17:"ok"};
 
 function reasonBadge(reason){
-  if(!reason||reason==='—') return '<span class="pt-badge pb-other">No reason given</span>';
+  if(!reason||reason==='—'||reason==='No comment / no reason documented') return '<span class="pt-badge pb-other">No comment / no reason documented</span>';
   var r=reason.toLowerCase();
   if(r.includes('hospital')||r.includes('er ')||r.includes('admitted')||r.includes('hospitali')) return '<span class="pt-badge pb-hosp">Hospitalized / ER</span>';
   if(r.includes('oral')||r.includes('shifted')) return '<span class="pt-badge pb-oral">Shifted to oral</span>';
@@ -423,6 +423,8 @@ function initPage(id){
   }
 }
 
+var consComp={1:19,2:61,3:53,4:48,5:88,6:90,7:45,8:45,9:84,10:59,11:91,12:52,13:74,14:86,15:40,16:3,17:55,18:96,19:92,20:54,21:100,22:35,23:79,24:67,25:61,26:15,27:7,28:13,29:17,30:24,31:10};
+
 function selectDay(d){
   selDay=d;
   var n=nD[d],tot=n.c+n.d,rate=(n.c/tot*100).toFixed(1);
@@ -443,11 +445,10 @@ function selectDay(d){
   // LEFT panel: stats + consult + note + reasons
   document.getElementById('dayStats').innerHTML=`
     <div class="stats-day-title">May ${d} — ${dow}</div>
-    <div class="stat-row"><span class="sr-lbl">Nursing cancelled</span><span class="sr-val" style="color:var(--rd)">${n.c} <span style="font-weight:400;color:var(--text3)">(${rate}%)</span></span></div>
-    <div class="stat-row"><span class="sr-lbl">Nursing completed</span><span class="sr-val">${n.d}</span></div>
-    <div class="stat-row"><span class="sr-lbl">Phlebotomy cancelled</span><span class="sr-val">${pD[d]||0}</span></div>
-    <div class="stat-row"><span class="sr-lbl">Vaccination cancelled</span><span class="sr-val">${vD[d]||0}</span></div>
-    <div class="stat-row"><span class="sr-lbl">Consultation cancelled</span><span class="sr-val">${cD[d]||0}</span></div>
+    <div class="stat-row"><span class="sr-lbl">Nursing cancelled</span><span class="sr-val" style="color:var(--rd)">${n.c} <span style="font-weight:400;color:var(--text3)">(${rate}%) of ${tot} visits</span></span></div>
+    <div class="stat-row"><span class="sr-lbl">Phlebotomy cancelled</span><span class="sr-val">${pD[d]||0} <span style="font-weight:400;color:var(--text3)">of ~${Math.round((pD[d]||0)/0.136)} visits</span></span></div>
+    <div class="stat-row"><span class="sr-lbl">Vaccination cancelled</span><span class="sr-val">${vD[d]||0}${vD[d]?` <span style="font-weight:400;color:var(--text3)">of ~${Math.round((vD[d]||0)/0.207)} visits</span>`:' <span style="font-weight:400;color:var(--text3)">— service off today</span>'}</span></div>
+    <div class="stat-row"><span class="sr-lbl">Consultation cancelled</span><span class="sr-val">${cD[d]||0} <span style="font-weight:400;color:var(--text3)">of ~${(cD[d]||0)+(consComp[d]||62)} visits</span></span></div>
     <div class="note ${nt}" style="margin-top:12px">${note}</div>
     ${rbHtml?`<div class="sec-hd">Top cancellation reasons</div>${rbHtml}`:''}`;
 
@@ -461,8 +462,8 @@ function selectDay(d){
         </td>
         <td style="white-space:nowrap;color:var(--text3);font-size:12px">${r.time}</td>
         <td>
-          <div class="pt-reason">${r.reason&&r.reason!=='—'?r.reason:'No reason documented'}</div>
-          ${reasonBadge(r.reason)}
+          <div class="pt-reason">${r.reason&&r.reason!=='—'?r.reason:'No comment / no reason documented'}</div>
+          ${reasonBadge(r.reason&&r.reason!=='—'?r.reason:'')}
         </td>
       </tr>`).join('')
     : `<tr><td colspan="3" class="empty">${hasDetail?'No detailed records for this day':'Detailed patient records available from May 11 onwards'}</td></tr>`;
@@ -514,8 +515,8 @@ function selectTime(t){
       </td>
       <td style="white-space:nowrap;color:var(--text3);font-size:12px">May ${r.day}</td>
       <td>
-        <div class="pt-reason">${r.reason&&r.reason!=='—'?r.reason:'No reason documented'}</div>
-        ${reasonBadge(r.reason)}
+        <div class="pt-reason">${r.reason&&r.reason!=='—'?r.reason:'No comment / no reason documented'}</div>
+        ${reasonBadge(r.reason&&r.reason!=='—'?r.reason:'')}
       </td>
     </tr>`).join('');
 
