@@ -25,6 +25,12 @@
       "skillPath": "skills/internal-comms/SKILL.md",
       "computedHash": "0bdc8867452b7ab9ef6167f6b0db2025ce5fb03773d3f85efcef2dfeb9d4976d"
     },
+    "pptx": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/pptx/SKILL.md",
+      "computedHash": "6b8b859d26f93aa059c9870d1ab76b44ab69e3d6757ce4a03cc94cb760888073"
+    },
     "sandbox-sdk": {
       "source": "cloudflare/skills",
       "sourceType": "github",
