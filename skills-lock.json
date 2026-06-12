@@ -31,6 +31,12 @@
       "skillPath": "skills/composio/SKILL.md",
       "computedHash": "11b975f122ecbf455b437e4e42ebf8f30fad84220894c3d52549eefea92a7795"
     },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "4eabc66183767153e404b39d1b839b1c37f2d82d86f0a0d7e880a579d8d62336"
+    },
     "internal-comms": {
       "source": "anthropics/skills",
       "sourceType": "github",
