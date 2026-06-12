@@ -31,6 +31,30 @@
       "skillPath": "skills/canvas-design/SKILL.md",
       "computedHash": "3fa7ea60170023ad8268bf9fd734ea75dd404279a2ef8ddf5abaa1102ad8e5f4"
     },
+    "chdb-datastore": {
+      "source": "clickhouse/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/chdb-datastore/SKILL.md",
+      "computedHash": "8a652156aa260f4d01a14a15ec703c4b9c7b3bafb5824fa12e65089e096b17ba"
+    },
+    "chdb-sql": {
+      "source": "clickhouse/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/chdb-sql/SKILL.md",
+      "computedHash": "6eece2c3948e1c6178dff37d4e83be21c261111386a63b4de4adae494f3f65d1"
+    },
+    "clickhouse-architecture-advisor": {
+      "source": "clickhouse/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/clickhouse-architecture-advisor/SKILL.md",
+      "computedHash": "5cecc53a1aa47ff41f84b7f984c1242d70af09b8bbce4f52d423dd5a06f5ae0b"
+    },
+    "clickhousectl-cloud-deploy": {
+      "source": "clickhouse/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/clickhousectl-cloud-deploy/SKILL.md",
+      "computedHash": "94ce3179d4370b76383c9d376f1185b7e8ea25a78693130835b2a5899ed83945"
+    },
     "composio": {
       "source": "ComposioHQ/skills",
       "sourceType": "github",
