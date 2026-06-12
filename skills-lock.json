@@ -121,6 +121,12 @@
       "skillPath": "skills/upgrade-stripe/SKILL.md",
       "computedHash": "a0f0bf709f65ba8d7aa8d55322d030e6b3f16756cb6f0be80463395306305ef3"
     },
+    "upgrading-react-native": {
+      "source": "callstackincubator/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/upgrading-react-native/SKILL.md",
+      "computedHash": "a8a0b9ce54dceb45233c3244dfe9aafc43f3cb9f4dad8c466f4091fe4065cdc9"
+    },
     "voltagent-best-practices": {
       "source": "VoltAgent/skills",
       "sourceType": "github",
