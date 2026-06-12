@@ -5,7 +5,8 @@
       "Bash(rm -rf .agents/skills/courier-skills)",
       "Bash(cp -r ~/.claude/skills/courier-skills .agents/skills/courier-skills)",
       "Bash(rm -rf .agents/skills/courier-skills/.git)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(mkdir -p /home/user/Cancellation-Analytics-May-2026/.claude/hooks)"
     ]
   }
 }
