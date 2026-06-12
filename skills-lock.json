@@ -37,6 +37,18 @@
       "skillPath": "skills/composio/SKILL.md",
       "computedHash": "11b975f122ecbf455b437e4e42ebf8f30fad84220894c3d52549eefea92a7795"
     },
+    "content-experimentation-best-practices": {
+      "source": "sanity-io/agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/content-experimentation-best-practices/SKILL.md",
+      "computedHash": "97c7d16a8a93362feb82ae569b5cf84e02845a2fb17d9a8cd528b96d76f304d3"
+    },
+    "content-modeling-best-practices": {
+      "source": "sanity-io/agent-toolkit",
+      "sourceType": "github",
+      "skillPath": "skills/content-modeling-best-practices/SKILL.md",
+      "computedHash": "9f0c62274cf8ccf41dd32fc2f2629f4c9a8e5a920826f30c2eb226d7e796b031"
+    },
     "create-auth-skill": {
       "source": "better-auth/skills",
       "sourceType": "github",
@@ -48,6 +60,12 @@
       "sourceType": "github",
       "skillPath": "better-auth/emailAndPassword/SKILL.md",
       "computedHash": "747d7f73bd9e2ec5317b8ef88dc70f97df716d00e3d02de4051feebaa48b062d"
+    },
+    "firecrawl-build-interact": {
+      "source": "firecrawl/skills",
+      "sourceType": "github",
+      "skillPath": "skills/firecrawl-build-interact/SKILL.md",
+      "computedHash": "1826b289e3338a770113eccf9f148739cc26cc1ed7bcb1f74bd22b14ef71dc4f"
     },
     "frontend-design": {
       "source": "anthropics/skills",
@@ -138,6 +156,12 @@
       "sourceType": "github",
       "skillPath": "skills/theme-factory/SKILL.md",
       "computedHash": "598ddfa9784ae2a8c55be5dbb047b98564d875dea6f4669168a87ae1ea1a4ed3"
+    },
+    "tinybird-python-sdk-guidelines": {
+      "source": "tinybirdco/tinybird-agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/tinybird-python-sdk-guidelines/SKILL.md",
+      "computedHash": "610ada91b068339d90ea544804fb395518767ae3588d47f29e21b2c6037de2c3"
     },
     "two-factor-authentication-best-practices": {
       "source": "better-auth/skills",
