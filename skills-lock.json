@@ -55,6 +55,12 @@
       "skillPath": "skills/gemini-live-api-dev/SKILL.md",
       "computedHash": "d4d52c9a639bd79fe5eeef0722a9d4d6ed256b99172375b60e96920c8b111836"
     },
+    "github": {
+      "source": "callstackincubator/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/github/SKILL.md",
+      "computedHash": "32131aefe2317287d83e1d3ed5b2a83ca5b1a08142ee3b9bb4fc9d54ea348c31"
+    },
     "internal-comms": {
       "source": "anthropics/skills",
       "sourceType": "github",
