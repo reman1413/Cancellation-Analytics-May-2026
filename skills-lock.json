@@ -85,6 +85,12 @@
       "skillPath": "skills/theme-factory/SKILL.md",
       "computedHash": "598ddfa9784ae2a8c55be5dbb047b98564d875dea6f4669168a87ae1ea1a4ed3"
     },
+    "voltagent-best-practices": {
+      "source": "VoltAgent/skills",
+      "sourceType": "github",
+      "skillPath": "skills/voltagent-best-practices/SKILL.md",
+      "computedHash": "bae60c5ed59943c3641a6be41c29497e34a2355cbee05985fba465b92263ea53"
+    },
     "web-perf": {
       "source": "cloudflare/skills",
       "sourceType": "github",
