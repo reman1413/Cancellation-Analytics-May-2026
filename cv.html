@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reman Mohammed Badawood — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080E1A;
+  --surface:#0F1929;
+  --surface2:#162035;
+  --surface3:#1C2840;
+  --border:rgba(212,165,116,.12);
+  --border2:rgba(212,165,116,.06);
+  --accent:#D4A574;
+  --accent2:#E8C9A8;
+  --teal:#4ECDC4;
+  --teal-dim:rgba(78,205,196,.15);
+  --text1:#EDE9E3;
+  --text2:#B0AEAD;
+  --text3:#6B7A94;
+  --glow:rgba(212,165,116,.08);
+  --glow-teal:rgba(78,205,196,.06);
+}
+html{scroll-behavior:smooth}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text1);min-height:100vh;font-size:15px;line-height:1.65;overflow-x:hidden}
+::selection{background:rgba(212,165,116,.25);color:#fff}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--surface3);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+
+.noise{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ─── HERO ─── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:60px 40px;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(212,165,116,.07) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-300px;left:-200px;width:800px;height:800px;background:radial-gradient(circle,rgba(78,205,196,.04) 0%,transparent 70%);pointer-events:none}
+
+.grid-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:.4}
+.grid-bg svg{width:100%;height:100%}
+
+.hero-content{position:relative;z-index:2;max-width:900px;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:32px;opacity:0;animation:fadeUp .8s .3s forwards}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--teal)}
+.hero-name{font-family:'Syne',sans-serif;font-size:clamp(42px,7vw,80px);font-weight:800;line-height:1.05;letter-spacing:-2px;color:var(--text1);margin-bottom:16px;opacity:0;animation:fadeUp .8s .5s forwards}
+.hero-name span{background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 50%,var(--teal) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(16px,2.5vw,22px);font-weight:500;color:var(--text2);line-height:1.5;margin-bottom:36px;max-width:700px;opacity:0;animation:fadeUp .8s .7s forwards}
+.hero-meta{display:flex;flex-wrap:wrap;gap:20px;align-items:center;opacity:0;animation:fadeUp .8s .9s forwards}
+.hero-meta-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text3);font-family:'IBM Plex Mono',monospace}
+.hero-meta-item svg{width:16px;height:16px;color:var(--accent);flex-shrink:0}
+.hero-meta-item a{color:var(--text3);text-decoration:none;transition:color .2s}
+.hero-meta-item a:hover{color:var(--accent)}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;background:var(--teal-dim);border:1px solid rgba(78,205,196,.2);font-size:12px;color:var(--teal);font-weight:500;letter-spacing:.3px}
+.hero-badge svg{width:14px;height:14px}
+
+.scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text3);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-family:'IBM Plex Mono',monospace;opacity:0;animation:fadeUp .8s 1.2s forwards}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollPulse 2s infinite}
+
+/* ─── SECTION BASE ─── */
+.section{padding:80px 40px;position:relative}
+.section+.section{border-top:1px solid var(--border2)}
+.sec-inner{max-width:1000px;margin:0 auto}
+.sec-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.sec-label::before{content:'';width:20px;height:1px;background:var(--teal)}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--text1);margin-bottom:40px;letter-spacing:-1px}
+
+/* ─── SUMMARY ─── */
+.summary-text{font-size:17px;line-height:1.85;color:var(--text2);max-width:800px;font-weight:300}
+.summary-text strong{color:var(--text1);font-weight:500}
+
+/* ─── COMPETENCIES ─── */
+.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border2);border-radius:16px;overflow:hidden}
+.comp-card{background:var(--surface);padding:32px 28px;position:relative;transition:background .3s}
+.comp-card:hover{background:var(--surface2)}
+.comp-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;font-size:20px}
+.comp-icon.op{background:rgba(212,165,116,.1);color:var(--accent)}
+.comp-icon.da{background:var(--teal-dim);color:var(--teal)}
+.comp-icon.dt{background:rgba(168,130,255,.1);color:#A882FF}
+.comp-card-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:600;color:var(--text1);margin-bottom:14px;letter-spacing:-.2px}
+.comp-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.comp-list li{font-size:13px;color:var(--text3);display:flex;align-items:center;gap:8px;transition:color .2s}
+.comp-card:hover .comp-list li{color:var(--text2)}
+.comp-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--surface3);flex-shrink:0;transition:background .2s}
+.comp-card:hover .comp-list li::before{background:var(--accent)}
+
+/* ─── EXPERIENCE ─── */
+.timeline{position:relative;padding-left:40px}
+.timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,var(--accent),var(--teal),var(--surface3))}
+.tl-item{position:relative;margin-bottom:48px}
+.tl-item:last-child{margin-bottom:0}
+.tl-dot{position:absolute;left:-40px;top:6px;width:15px;height:15px;border-radius:50%;border:2px solid var(--accent);background:var(--bg);z-index:2;transition:all .3s}
+.tl-item:hover .tl-dot{background:var(--accent);box-shadow:0 0 20px rgba(212,165,116,.3)}
+.tl-item.current .tl-dot{background:var(--teal);border-color:var(--teal);box-shadow:0 0 12px rgba(78,205,196,.3)}
+.tl-header{margin-bottom:14px}
+.tl-date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent);letter-spacing:1px;margin-bottom:4px}
+.tl-role{font-family:'Syne',sans-serif;font-size:20px;font-weight:600;color:var(--text1);line-height:1.3;letter-spacing:-.3px}
+.tl-org{font-size:14px;color:var(--text2);margin-top:4px;display:flex;align-items:center;gap:6px}
+.tl-org svg{width:14px;height:14px;color:var(--text3)}
+.tl-body{color:var(--text3);font-size:14px;line-height:1.7}
+.tl-body ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.tl-body ul li{padding-left:16px;position:relative}
+.tl-body ul li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:12px}
+
+/* ─── PROJECTS ─── */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border2);border-radius:16px;overflow:hidden}
+.proj-card{background:var(--surface);padding:32px 28px;position:relative;transition:all .3s;overflow:hidden}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--teal));opacity:0;transition:opacity .3s}
+.proj-card:hover::before{opacity:1}
+.proj-card:hover{background:var(--surface2)}
+.proj-num{font-family:'Syne',sans-serif;font-size:48px;font-weight:800;color:var(--surface3);position:absolute;top:16px;right:20px;line-height:1;transition:color .3s}
+.proj-card:hover .proj-num{color:rgba(212,165,116,.08)}
+.proj-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:600;color:var(--text1);margin-bottom:10px;position:relative;letter-spacing:-.2px}
+.proj-desc{font-size:13px;color:var(--text3);line-height:1.7;position:relative}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;position:relative}
+.proj-tag{font-size:10px;padding:3px 10px;border-radius:12px;background:var(--surface3);color:var(--text3);font-family:'IBM Plex Mono',monospace;letter-spacing:.5px}
+
+/* ─── SKILLS ─── */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.skill-item{background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:14px;transition:all .3s;cursor:default}
+.skill-item:hover{border-color:var(--border);background:var(--surface2);transform:translateY(-2px)}
+.skill-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;flex-shrink:0}
+.skill-icon.adv{background:rgba(212,165,116,.12);color:var(--accent)}
+.skill-icon.mid{background:var(--teal-dim);color:var(--teal)}
+.skill-icon.bas{background:rgba(168,130,255,.1);color:#A882FF}
+.skill-label{font-size:14px;color:var(--text1);font-weight:500}
+.skill-level{font-size:11px;color:var(--text3);margin-top:2px}
+
+/* ─── EDUCATION ─── */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border2);border-radius:16px;overflow:hidden;margin-bottom:40px}
+.edu-card{background:var(--surface);padding:32px 28px;position:relative}
+.edu-degree{font-family:'Syne',sans-serif;font-size:18px;font-weight:600;color:var(--text1);margin-bottom:6px;letter-spacing:-.2px}
+.edu-school{font-size:14px;color:var(--accent);margin-bottom:4px}
+.edu-detail{font-size:13px;color:var(--text3)}
+.edu-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:14px;font-size:11px;font-weight:500;margin-top:10px}
+.edu-badge.gpa{background:rgba(212,165,116,.1);color:var(--accent)}
+.edu-badge.prog{background:var(--teal-dim);color:var(--teal)}
+
+/* ─── CERTIFICATIONS ─── */
+.cert-flow{display:flex;flex-wrap:wrap;gap:8px}
+.cert-pill{padding:10px 20px;border-radius:30px;background:var(--surface);border:1px solid var(--border2);font-size:13px;color:var(--text2);transition:all .3s;cursor:default}
+.cert-pill:hover{border-color:var(--accent);color:var(--text1);background:var(--surface2);transform:translateY(-1px)}
+
+/* ─── LANGUAGES ─── */
+.lang-row{display:flex;gap:24px;margin-top:40px}
+.lang-card{flex:1;background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:28px;text-align:center;transition:all .3s}
+.lang-card:hover{border-color:var(--border);transform:translateY(-2px)}
+.lang-name{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--text1);margin-bottom:6px}
+.lang-level{font-size:13px;color:var(--text3)}
+.lang-bar{height:3px;background:var(--surface3);border-radius:2px;margin-top:14px;overflow:hidden}
+.lang-fill{height:100%;border-radius:2px;transition:width 1.5s cubic-bezier(.16,1,.3,1)}
+.lang-fill.native{background:var(--accent);width:100%}
+.lang-fill.prof{background:var(--teal);width:82%}
+
+/* ─── FOOTER ─── */
+.footer{padding:40px;text-align:center;border-top:1px solid var(--border2)}
+.footer-text{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text3);letter-spacing:1px}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:.8}}
+
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}
+.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .comp-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .edu-grid{grid-template-columns:1fr}
+  .section{padding:60px 24px}
+  .hero{padding:60px 24px}
+  .timeline{padding-left:32px}
+  .tl-dot{left:-32px}
+}
+@media(max-width:600px){
+  .skills-grid{grid-template-columns:1fr}
+  .hero-meta{flex-direction:column;align-items:flex-start;gap:12px}
+  .lang-row{flex-direction:column;gap:12px}
+  .hero-name{letter-spacing:-1px}
+}
+
+/* ─── PRINT ─── */
+@media print{
+  body{background:#fff;color:#1a1a1a;font-size:11px}
+  .noise,.grid-bg,.scroll-hint{display:none}
+  .hero{min-height:auto;padding:30px 20px}
+  .hero-name{font-size:28px;-webkit-text-fill-color:#1a1a1a;color:#1a1a1a}
+  .hero-title{color:#444;font-size:14px}
+  .hero-meta-item{color:#666}
+  .section{padding:20px;break-inside:avoid}
+  .sec-title{font-size:18px;color:#1a1a1a;margin-bottom:16px}
+  .sec-label{color:#888}
+  .comp-grid,.proj-grid,.edu-grid{gap:1px;border:1px solid #ddd}
+  .comp-card,.proj-card,.edu-card{background:#fafafa;padding:16px}
+  .tl-item{margin-bottom:20px}
+  .timeline::before{background:#ccc}
+  .tl-dot{border-color:#888}
+  .skill-item{border-color:#ddd;padding:10px 14px}
+  .cert-pill{border-color:#ddd;padding:6px 14px}
+  .lang-card{border-color:#ddd}
+  .reveal{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="grid-bg">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(212,165,116,0.04)" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag">Curriculum Vitae</div>
+    <h1 class="hero-name">Reman Mohammed<br><span>Badawood</span></h1>
+    <p class="hero-title">Healthcare Digital Transformation & Audit Analytics Leader — AI-Driven Analytics, Risk Assessment, Compliance Monitoring & Process Improvement</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 0 1 15 0Z"/></svg>
+        Riyadh, Saudi Arabia
+      </div>
+      <div class="hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+        <a href="mailto:reman.m.b@hotmail.com">reman.m.b@hotmail.com</a>
+      </div>
+      <span class="hero-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+        SCFHS Licensed RN
+      </span>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</section>
+
+<!-- ═══════════════ SUMMARY ═══════════════ -->
+<section class="section">
+  <div class="sec-inner">
+    <div class="reveal">
+      <div class="sec-label">About</div>
+      <h2 class="sec-title">Professional Summary</h2>
+    </div>
+    <p class="summary-text reveal reveal-d1">
+      Healthcare operations and quality leader with <strong>10+ years</strong> of progressive experience spanning critical care, home healthcare operations, leadership, compliance monitoring, audit analytics, and <strong>digital transformation</strong>.
+    </p>
+    <br>
+    <p class="summary-text reveal reveal-d2">
+      Demonstrated success in leading large-scale healthcare operations, overseeing <strong>112+ clinical staff</strong> across multiple service lines, developing audit frameworks, monitoring compliance, identifying operational risks, and building <strong>AI-assisted analytics tools</strong> to support strategic decision-making.
+    </p>
+    <br>
+    <p class="summary-text reveal reveal-d3">
+      Skilled in bridging healthcare domain expertise with business operations, data analytics, and digital innovation to improve workflows, strengthen internal controls, and drive measurable organizational performance.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════ COMPETENCIES ═══════════════ -->
+<section class="section">
+  <div class="sec-inner">
+    <div class="reveal">
+      <div class="sec-label">Expertise</div>
+      <h2 class="sec-title">Core Competencies</h2>
+    </div>
+    <div class="comp-grid reveal reveal-d1">
+      <div class="comp-card">
+        <div class="comp-icon op">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15a2.25 2.25 0 0 1 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"/></svg>
+        </div>
+        <div class="comp-card-title">Operations, Audit & Risk</div>
+        <ul class="comp-list">
+          <li>Operational Audit</li>
+          <li>Compliance Monitoring</li>
+          <li>Risk Assessment</li>
+          <li>Root Cause Analysis</li>
+          <li>Corrective Action Planning</li>
+          <li>Incident Investigation</li>
+          <li>Process Improvement</li>
+        </ul>
+      </div>
+      <div class="comp-card">
+        <div class="comp-icon da">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+        </div>
+        <div class="comp-card-title">Data Analytics & Reporting</div>
+        <ul class="comp-list">
+          <li>KPI Dashboards</li>
+          <li>Data Cleaning & Trend Analysis</li>
+          <li>Performance Reporting</li>
+          <li>Operational Analytics</li>
+          <li>Risk Indicators (KRIs)</li>
+          <li>Data Storytelling</li>
+        </ul>
+      </div>
+      <div class="comp-card">
+        <div class="comp-icon dt">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/></svg>
+        </div>
+        <div class="comp-card-title">Digital Transformation</div>
+        <ul class="comp-list">
+          <li>AI-assisted Automation</li>
+          <li>Dashboard Development</li>
+          <li>Product Requirement Analysis</li>
+          <li>Workflow Optimization</li>
+          <li>Internal Digital Tools</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ EXPERIENCE ═══════════════ -->
+<section class="section">
+  <div class="sec-inner">
+    <div class="reveal">
+      <div class="sec-label">Career</div>
+      <h2 class="sec-title">Professional Experience</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item current reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-header">
+          <div class="tl-date">2025 — Present</div>
+          <div class="tl-role">Head Nurse — Operations, Compliance & Analytics Lead</div>
+          <div class="tl-org">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"/></svg>
+            Meena Health Group · Riyadh
+          </div>
+        </div>
+        <div class="tl-body">
+          <p style="margin-bottom:12px;color:var(--text2)">Lead operational performance, compliance monitoring, analytics, and audit initiatives across seven specialized healthcare service lines.</p>
+          <ul>
+            <li>Oversee operational performance and compliance monitoring for 112 nurses across 7 specialized services</li>
+            <li>Designed KPI dashboards and analytics reports for performance tracking and decision support</li>
+            <li>Built operational audit systems to monitor staff readiness, documentation quality, compliance, and performance</li>
+            <li>Identified workflow bottlenecks and operational risks, implementing corrective actions to improve service quality</li>
+            <li>Analyzed complaints, incidents, and service trends to identify root causes and support risk mitigation</li>
+            <li>Led accreditation readiness and policy implementation across multiple service lines</li>
+            <li>Built internal AI-assisted digital solutions including operational dashboards, LMS, and nurse management systems</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-header">
+          <div class="tl-date">2023 — 2025</div>
+          <div class="tl-role">Acting Head Nurse — Home Healthcare Operations</div>
+          <div class="tl-org">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"/></svg>
+            King Khalid University Hospital · Riyadh
+          </div>
+        </div>
+        <div class="tl-body">
+          <ul>
+            <li>Supervised home healthcare operations and staff performance</li>
+            <li>Monitored compliance with documentation and quality standards</li>
+            <li>Supported workflow optimization and service quality improvement initiatives</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-header">
+          <div class="tl-date">2020 — 2023</div>
+          <div class="tl-role">Clinical Operations / Charge Nurse — Home Healthcare</div>
+          <div class="tl-org">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"/></svg>
+            King Fahad Medical City · Riyadh
+          </div>
+        </div>
+        <div class="tl-body">
+          <ul>
+            <li>Delivered specialized home healthcare services</li>
+            <li>Ensured clinical documentation compliance and service quality</li>
+            <li>Participated in operational monitoring and quality initiatives</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-header">
+          <div class="tl-date">2016 — 2020</div>
+          <div class="tl-role">Critical Care Nurse (ICU / RRT / PICU)</div>
+          <div class="tl-org">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"/></svg>
+            Security Forces Hospital · Riyadh
+          </div>
+        </div>
+        <div class="tl-body">
+          <ul>
+            <li>Managed critically ill patients in high-risk clinical environments</li>
+            <li>Developed strong risk assessment, escalation, and crisis management skills</li>
+            <li>Strengthened patient safety and incident response competencies</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PROJECTS ═══════════════ -->
+<section class="section">
+  <div class="sec-inner">
+    <div class="reveal">
+      <div class="sec-label">Portfolio</div>
+      <h2 class="sec-title">Audit & Analytics Projects</h2>
+    </div>
+    <div class="proj-grid reveal reveal-d1">
+      <div class="proj-card">
+        <div class="proj-num">01</div>
+        <div class="proj-name">Nurse Audit & Compliance System</div>
+        <div class="proj-desc">Developed a digital audit framework for monitoring compliance, documentation quality, staff readiness, and corrective action tracking.</div>
+        <div class="proj-tags"><span class="proj-tag">Audit</span><span class="proj-tag">Compliance</span><span class="proj-tag">Digital</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">02</div>
+        <div class="proj-name">Operational KPI Dashboard</div>
+        <div class="proj-desc">Built multi-service dashboards tracking cancellation trends, no-show trends, workload distribution, performance metrics, and operational risk indicators.</div>
+        <div class="proj-tags"><span class="proj-tag">Analytics</span><span class="proj-tag">KPI</span><span class="proj-tag">Chart.js</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">03</div>
+        <div class="proj-name">HomeCare Pro</div>
+        <div class="proj-desc">Developed an internal nurse management platform featuring readiness checklists, compliance tracking, performance analytics, and leadership reporting.</div>
+        <div class="proj-tags"><span class="proj-tag">Platform</span><span class="proj-tag">Supabase</span><span class="proj-tag">Management</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">04</div>
+        <div class="proj-name">Learning Hub LMS</div>
+        <div class="proj-desc">Built a learning management platform with training compliance tracking, analytics, certificates, and engagement monitoring.</div>
+        <div class="proj-tags"><span class="proj-tag">LMS</span><span class="proj-tag">Training</span><span class="proj-tag">Analytics</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SKILLS ═══════════════ -->
+<section class="section">
+  <div class="sec-inner">
+    <div class="reveal">
+      <div class="sec-label">Tools</div>
+      <h2 class="sec-title">Technical Skills</h2>
+    </div>
+    <div class="skills-grid reveal reveal-d1">
+      <div class="skill-item">
+        <div class="skill-icon adv">XL</div>
+        <div><div class="skill-label">Excel</div><div class="skill-level">Advanced</div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon adv">JS</div>
+        <div><div class="skill-label">Chart.js</div><div class="skill-level">Advanced</div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon adv">&lt;/&gt;</div>
+        <div><div class="skill-label">HTML / CSS</div><div class="skill-level">Advanced</div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon adv">SB</div>
+        <div><div class="skill-label">Supabase</div><div class="skill-level">Advanced</div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon adv">MS</div>
+        <div><div class="skill-label">MS Office 365</div><div class="skill-level">Advanced</div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon adv">GS</div>
+        <div><div class="skill-label">Google Sheets API</div><div class="skill-level">Advanced</div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon mid">Py</div>
+        <div><div class="skill-label">Python</div><div class="skill-level">Basic</div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon mid">SQL</div>
+        <div><div class="skill-label">SQL</div><div class="skill-level">Learning</div></div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-icon bas">Cv</div>
+        <div><div class="skill-label">Canva Pro</div><div class="skill-level">Advanced</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ EDUCATION ═══════════════ -->
+<section class="section">
+  <div class="sec-inner">
+    <div class="reveal">
+      <div class="sec-label">Education</div>
+      <h2 class="sec-title">Education & Certifications</h2>
+    </div>
+    <div class="edu-grid reveal reveal-d1">
+      <div class="edu-card">
+        <div class="edu-degree">Bachelor of Science in Nursing</div>
+        <div class="edu-school">Princess Nourah Bint Abdulrahman University</div>
+        <div class="edu-detail">BSN</div>
+        <span class="edu-badge gpa">GPA: 4.4 / 5</span>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Higher Diploma in Artificial Intelligence</div>
+        <div class="edu-school">2025 — 2026</div>
+        <div class="edu-detail">Specialization in AI & Machine Learning</div>
+        <span class="edu-badge prog">In Progress</span>
+      </div>
+    </div>
+
+    <div class="reveal reveal-d2">
+      <div class="sec-label" style="margin-bottom:20px">Certifications</div>
+    </div>
+    <div class="cert-flow reveal reveal-d3">
+      <div class="cert-pill">IIWCC — University of Toronto Wound Care</div>
+      <div class="cert-pill">Healthcare Risk Management</div>
+      <div class="cert-pill">Change Management</div>
+      <div class="cert-pill">PMP Preparation Course</div>
+      <div class="cert-pill">Nursing Leadership Diploma</div>
+      <div class="cert-pill">BLS</div>
+      <div class="cert-pill">ACLS</div>
+      <div class="cert-pill">PALS</div>
+    </div>
+
+    <div class="lang-row reveal">
+      <div class="lang-card">
+        <div class="lang-name">العربية</div>
+        <div class="lang-level">Native</div>
+        <div class="lang-bar"><div class="lang-fill native"></div></div>
+      </div>
+      <div class="lang-card">
+        <div class="lang-name">English</div>
+        <div class="lang-level">Professional Working Proficiency</div>
+        <div class="lang-bar"><div class="lang-fill prof"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-text">Reman Mohammed Badawood &middot; Riyadh, Saudi Arabia</div>
+</footer>
+
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+
+  document.querySelectorAll('.reveal').forEach(function(el){
+    obs.observe(el);
+  });
+})();
+</script>
+</body>
+</html>
